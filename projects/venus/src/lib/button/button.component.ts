@@ -1,17 +1,30 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { css } from '../styles';
 import { ButtonStyle } from './button.styles';
-import { ButtonVariants } from './button.variants';
 
 @Component({
   selector: 'venus-button',
   template: `
-    <button [ngClass]="style">
-      <ng-content></ng-content>
+    <button [ngClass]="[style]">
+      {{ height }}
     </button>
   `,
   styles: [],
 })
-export class ButtonComponent {
-  @Input() variant: 'primary' | 'danger' = 'primary';
-  style = ButtonStyle({ color: this.variant }).className;
+export class ButtonComponent implements OnInit {
+  @Input() variant: 'primary' | 'secondary' | 'danger' | 'success' | 'warning' =
+    'primary';
+  @Input() height = '';
+  @Input() backgroundColor = '';
+  @Input() border = '';
+  style: any = '';
+
+  ngOnInit(): void {
+    // this.style = ButtonStyle({ bg: this.variant }).className;
+    this.style = css({
+      height: this.height,
+      backgroundColor: this.backgroundColor,
+      border: this.border,
+    }).className;
+  }
 }

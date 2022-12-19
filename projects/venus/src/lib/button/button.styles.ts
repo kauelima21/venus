@@ -7,18 +7,39 @@ export const ButtonStyle = css({
   backgroundColor: '$primaryMid',
   border: 'none',
   cursor: 'pointer',
+  borderRadius: '$1',
   variants: {
-    color: {
+    bg: {
       primary: {
         backgroundColor: '$primaryMid',
         '&:hover': {
           backgroundColor: '$primaryDark',
         },
       },
+      secondary: {
+        backgroundColor: '$secondaryLow',
+        color: '$secondaryRegular',
+        '&:hover': {
+          backgroundColor: '$secondaryRegular',
+          color: '$secondaryLow',
+        },
+      },
       danger: {
         backgroundColor: '$danger',
         '&:hover': {
           backgroundColor: '$dangerHover',
+        },
+      },
+      success: {
+        backgroundColor: '$success',
+        '&:hover': {
+          backgroundColor: '$successHover',
+        },
+      },
+      warning: {
+        backgroundColor: '$warning',
+        '&:hover': {
+          backgroundColor: '$warningHover',
         },
       },
     },

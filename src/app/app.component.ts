@@ -2,6 +2,19 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: ` <venus-button variant="danger">Edu Gato</venus-button> `,
+  template: `
+    <div>
+      <venus-button
+        height="50px"
+        [border]="'none'"
+        backgroundColor="$primaryMid"
+        >Button</venus-button
+      >
+      <venus-button variant="secondary">Button</venus-button>
+      <venus-button variant="danger">Button</venus-button>
+      <venus-button variant="success">Button</venus-button>
+      <venus-button variant="warning">Button</venus-button>
+    </div>
+  `,
 })
 export class AppComponent {}
