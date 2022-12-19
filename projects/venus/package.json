@@ -1,6 +1,6 @@
 {
   "name": "@kauelima21/venus",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "git://github.com/kauelima21/venus.git"
@@ -9,9 +9,6 @@
     "@angular/common": "^15.0.0",
     "@stitches/core": "^1.2.8",
     "@angular/core": "^15.0.0"
-  },
-  "allowedNonPeerDependencies": {
-    "@stitches/core": "^1.2.8"
   },
   "dependencies": {
     "tslib": "^2.3.0"
