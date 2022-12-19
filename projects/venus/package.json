@@ -7,10 +7,10 @@
   },
   "peerDependencies": {
     "@angular/common": "^15.0.0",
+    "@stitches/core": "^1.2.8",
     "@angular/core": "^15.0.0"
   },
   "dependencies": {
-    "@stitches/core": "^1.2.8",
     "tslib": "^2.3.0"
   }
 }
