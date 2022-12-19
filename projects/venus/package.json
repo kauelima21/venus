@@ -13,6 +13,7 @@
     "@stitches/core": "^1.2.8"
   },
   "dependencies": {
+    "@stitches/core": "^1.2.8",
     "tslib": "^2.3.0"
   }
 }
