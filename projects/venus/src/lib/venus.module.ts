@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { VenusComponent } from './venus.component';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../public-api';
 
 @NgModule({
-  declarations: [VenusComponent, ButtonComponent],
+  declarations: [ButtonComponent],
   imports: [CommonModule],
-  exports: [VenusComponent, ButtonComponent],
+  exports: [ButtonComponent],
 })
 export class VenusModule {}
