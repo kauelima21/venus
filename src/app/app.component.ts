@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: ` <venus-button variant="danger">Edu Gato</venus-button> `,
 })
-export class AppComponent {
-  title = 'venus-ui';
-}
+export class AppComponent {}

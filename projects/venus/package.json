@@ -1,0 +1,12 @@
+{
+  "name": "venus",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0"
+  },
+  "dependencies": {
+    "@stitches/core": "^1.2.8",
+    "tslib": "^2.3.0"
+  }
+}
