@@ -1,6 +1,10 @@
 {
-  "name": "venus",
+  "name": "@kauelima21/venus",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kauelima21/venus.git"
+  },
   "peerDependencies": {
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0"
