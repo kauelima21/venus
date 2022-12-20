@@ -1,13 +1,18 @@
-import { css } from './../styles';
+import { css } from './../../styles';
 
-export const ButtonStyle = css({
-  color: '$white',
-  padding: '0 1.5rem',
+export const VenusButtonStyle = css({
   height: '50px',
+  padding: '0 1.5rem',
+  color: '$white',
+  textTransform: 'uppercase',
+  fontSize: '$md',
+  fontWeight: '$bold',
   backgroundColor: '$primaryMid',
   border: 'none',
+  borderRadius: '$sm',
   cursor: 'pointer',
-  borderRadius: '$1',
+  transition: '.3s',
+
   variants: {
     bg: {
       primary: {
@@ -38,6 +43,7 @@ export const ButtonStyle = css({
       },
       warning: {
         backgroundColor: '$warning',
+        color: '$secondaryMid',
         '&:hover': {
           backgroundColor: '$warningHover',
         },
