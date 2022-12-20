@@ -7,7 +7,7 @@ export const VenusInputStyle = css({
   backgroundColor: '$secondaryLow',
   borderRadius: '$sm',
   border: '2px solid $secondaryLow',
-  padding: '0 1rem',
+  padding: '0 .7rem',
   transition: '.3s',
   outline: 'none',
   '&:focus': {

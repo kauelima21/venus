@@ -1,7 +1,3 @@
-/*
- * Public API Surface of venus
- */
-
 export * from './lib/venus.service';
 export * from './lib/components/venus-button/venus-button.component';
 export * from './lib/components/venus-input/venus-input.component';

@@ -111,7 +111,6 @@
       "projectType": "library",
       "root": "projects/venus",
       "sourceRoot": "projects/venus/src",
-      "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
