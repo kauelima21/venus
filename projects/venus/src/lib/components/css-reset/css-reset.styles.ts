@@ -16,4 +16,8 @@ export const GlobalStyles = globalCss({
   a: { display: 'inline-block', textDecoration: 'none' },
   ul: { listStyle: 'none' },
   img: { maxWidth: '100%', display: 'inline-block' },
+  h1: { fontSize: '3rem' },
+  h2: { fontSize: '2rem' },
+  h3: { fontSize: '1.5rem' },
+  p: { fontSize: '1rem' },
 });

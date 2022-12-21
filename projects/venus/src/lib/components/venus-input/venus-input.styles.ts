@@ -10,6 +10,7 @@ export const VenusInputStyle = css({
   padding: '0 .7rem',
   transition: '.3s',
   outline: 'none',
+  maxWidth: '100%',
 
   '&:focus': {
     border: '3px solid $primaryMid',

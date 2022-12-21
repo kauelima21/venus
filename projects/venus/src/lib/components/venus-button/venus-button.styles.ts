@@ -49,5 +49,10 @@ export const VenusButtonStyle = css({
         },
       },
     },
+    size: {
+      full: {
+        width: '100%',
+      },
+    },
   },
 });
