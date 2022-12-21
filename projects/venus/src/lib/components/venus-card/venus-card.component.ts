@@ -10,10 +10,10 @@ import {
   template: `
     <article [ngClass]="[style]">
       <header [ngClass]="[header]">
-        <h2>Resultado</h2>
+        <ng-content select="card-header"></ng-content>
       </header>
       <section [ngClass]="[section]">
-        <ng-content></ng-content>
+        <ng-content select="card-section"></ng-content>
       </section>
     </article>
   `,
