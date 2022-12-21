@@ -25,6 +25,7 @@ export const { css } = createStitches({
       black: '#000000',
       white: '#FFFFFF',
     },
+
     fontSizes: {
       xs: '0.75rem',
       sm: '0.875rem',
@@ -34,11 +35,13 @@ export const { css } = createStitches({
       xxl: '2rem',
       xxxl: '3rem',
     },
+
     fontWeights: {
       regular: '400',
       medium: '500',
       bold: '700',
     },
+
     radii: {
       sm: '5px',
       md: '8px',

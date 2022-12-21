@@ -2,15 +2,16 @@ import { css } from './../../styles';
 
 export const VenusInputStyle = css({
   height: '50px',
-  fontSize: '$md',
+  fontSize: '$sm',
   color: '$secondaryMid',
   backgroundColor: '$secondaryLow',
   borderRadius: '$sm',
-  border: '2px solid $secondaryLow',
+  border: '3px solid $secondaryLow',
   padding: '0 .7rem',
   transition: '.3s',
   outline: 'none',
+
   '&:focus': {
-    border: '2px solid $primaryMid',
+    border: '3px solid $primaryMid',
   },
 });

@@ -1,11 +1,11 @@
 import { css } from './../../styles';
 
 export const VenusButtonStyle = css({
-  height: '50px',
+  height: '40px',
   padding: '0 1.5rem',
   color: '$white',
   textTransform: 'uppercase',
-  fontSize: '$md',
+  fontSize: '$sm',
   fontWeight: '$bold',
   backgroundColor: '$primaryMid',
   border: 'none',
