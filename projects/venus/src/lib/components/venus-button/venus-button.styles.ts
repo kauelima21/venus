@@ -20,6 +20,11 @@ export const VenusButtonStyle = css({
         '&:hover': {
           backgroundColor: '$primaryDark',
         },
+        '&:disabled': {
+          cursor: 'not-allowed',
+          backgroundColor: 'rgba(41, 182, 197, .5)',
+          color: 'rgba(255, 255, 255, .5)',
+        },
       },
       secondary: {
         backgroundColor: '$secondaryLow',
@@ -28,11 +33,21 @@ export const VenusButtonStyle = css({
           backgroundColor: '$secondaryRegular',
           color: '$secondaryLow',
         },
+        '&:disabled': {
+          cursor: 'not-allowed',
+          backgroundColor: '$gray',
+          color: 'rgba(112, 112, 112, .5)',
+        },
       },
       danger: {
         backgroundColor: '$danger',
         '&:hover': {
           backgroundColor: '$dangerHover',
+        },
+        '&:disabled': {
+          cursor: 'not-allowed',
+          backgroundColor: 'rgba(217, 67, 82, .5)',
+          color: 'rgba(255, 255, 255, .5)',
         },
       },
       success: {
@@ -40,12 +55,22 @@ export const VenusButtonStyle = css({
         '&:hover': {
           backgroundColor: '$successHover',
         },
+        '&:disabled': {
+          cursor: 'not-allowed',
+          backgroundColor: 'rgba(0, 179, 126, .5)',
+          color: 'rgba(255, 255, 255, .5)',
+        },
       },
       warning: {
         backgroundColor: '$warning',
         color: '$secondaryMid',
         '&:hover': {
           backgroundColor: '$warningHover',
+        },
+        '&:disabled': {
+          cursor: 'not-allowed',
+          backgroundColor: 'rgba(245, 185, 70, .5)',
+          color: 'rgba(78, 74, 69, .5)',
         },
       },
     },

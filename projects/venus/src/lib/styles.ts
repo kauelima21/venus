@@ -24,6 +24,7 @@ export const { css } = createStitches({
       purpleHover: '#633BBC',
       black: '#000000',
       white: '#FFFFFF',
+      gray: '#EFEFF2',
     },
 
     fontSizes: {

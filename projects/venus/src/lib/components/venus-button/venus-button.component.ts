@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TransformProps } from '@stitches/core/types/styled-component';
 import { VenusButtonStyle } from './venus-button.styles';
 
 @Component({
   selector: 'venus-button',
   template: `
-    <button [ngClass]="[style]" [type]="type">
+    <button [ngClass]="[style]" [disabled]="isDisabled" [type]="type">
       <ng-content></ng-content>
     </button>
   `,
@@ -15,17 +16,27 @@ export class VenusButtonComponent implements OnInit {
   @Input() variant: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' =
     'primary';
   @Input() full: boolean = false;
+  @Input() isDisabled: boolean = false;
   style: string = '';
 
   ngOnInit(): void {
+    let props: TransformProps<
+      {
+        bg?:
+          | 'primary'
+          | 'secondary'
+          | 'danger'
+          | 'warning'
+          | 'success'
+          | undefined;
+        size?: 'full' | undefined;
+      },
+      {}
+    > = { bg: this.variant };
     if (this.full) {
-      this.style = VenusButtonStyle({
-        bg: this.variant,
-        size: 'full',
-      }).className;
-      return;
+      props.size = 'full';
     }
 
-    this.style = VenusButtonStyle({ bg: this.variant }).className;
+    this.style = VenusButtonStyle(props).className;
   }
 }

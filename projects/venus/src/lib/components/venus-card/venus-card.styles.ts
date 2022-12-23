@@ -2,7 +2,7 @@ import { css } from '../../styles';
 
 export const VenusCardStyle = css({
   color: '$secondaryMid',
-  backgroundColor: '$secondaryLight',
+  backgroundColor: '$gray',
   border: 'none',
   borderRadius: '$lg',
   outline: 'none',

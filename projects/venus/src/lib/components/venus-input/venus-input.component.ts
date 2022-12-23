@@ -6,6 +6,7 @@ import { VenusInputStyle } from './venus-input.styles';
   template: `
     <input
       [placeholder]="placeholder"
+      [disabled]="isDisabled"
       [ngClass]="style"
       [name]="name"
       [type]="type"
@@ -18,6 +19,7 @@ export class VenusInputComponent implements OnInit {
   @Input() type: 'text' | 'number' | 'password' = 'text';
   @Input() name: string = '';
   @Input() placeholder: string = '';
+  @Input() isDisabled: boolean = false;
   style: string = '';
 
   ngOnInit() {
