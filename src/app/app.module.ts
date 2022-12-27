@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { VenusModule } from 'dist/venus';
+import { VenusModule } from 'venus';
 import { AppComponent } from './app.component';
 
 @NgModule({

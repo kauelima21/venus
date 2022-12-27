@@ -1,17 +1,18 @@
-import { css } from './../../styles';
+import { css } from '../../stitches.config';
 
 export const VenusButtonStyle = css({
-  height: '40px',
-  padding: '0 1.5rem',
   color: '$white',
   textTransform: 'uppercase',
-  fontSize: '$sm',
   fontWeight: '$bold',
   backgroundColor: '$primaryMid',
   border: 'none',
   borderRadius: '$sm',
   cursor: 'pointer',
   transition: '.3s',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '5px',
 
   variants: {
     bg: {
@@ -75,6 +76,23 @@ export const VenusButtonStyle = css({
       },
     },
     size: {
+      md: {
+        height: '40px',
+        fontSize: '$sm',
+        padding: '0 1rem',
+      },
+      lg: {
+        height: '50px',
+        fontSize: '$md',
+        padding: '0 1.5rem',
+      },
+      sm: {
+        height: '30px',
+        fontSize: '$xs',
+        padding: '0 .8rem',
+      },
+    },
+    width: {
       full: {
         width: '100%',
       },

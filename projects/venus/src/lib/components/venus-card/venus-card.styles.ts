@@ -1,10 +1,9 @@
-import { css } from '../../styles';
+import { css } from '../../stitches.config';
 
 export const VenusCardStyle = css({
   color: '$secondaryMid',
   backgroundColor: '$gray',
   border: 'none',
-  borderRadius: '$lg',
   outline: 'none',
   width: '475px',
   variants: {
@@ -13,18 +12,16 @@ export const VenusCardStyle = css({
         width: '100%',
       },
     },
+    radii: {
+      sm: {
+        borderRadius: '$sm',
+      },
+      md: {
+        borderRadius: '$md',
+      },
+      lg: {
+        borderRadius: '$lg',
+      },
+    },
   },
-});
-
-export const VenusCardHeader = css({
-  fontWeight: '$bold',
-  padding: '18px',
-  fontSize: '$lg',
-  borderBottom: '1px solid $secondaryRegular',
-});
-
-export const VenusCardSection = css({
-  padding: '24px 18px',
-  fontWeight: '$bold',
-  fontSize: '$md',
 });

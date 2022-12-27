@@ -1,4 +1,4 @@
-import { css } from './../../styles';
+import { css } from '../../stitches.config';
 
 export const VenusInputStyle = css({
   height: '50px',
@@ -10,7 +10,7 @@ export const VenusInputStyle = css({
   padding: '0 .7rem',
   transition: '.3s',
   outline: 'none',
-  maxWidth: '100%',
+  width: '100%',
 
   '&:focus': {
     border: '3px solid $primaryMid',

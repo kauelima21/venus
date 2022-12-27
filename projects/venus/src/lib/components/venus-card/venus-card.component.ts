@@ -1,38 +1,29 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {
-  VenusCardStyle,
-  VenusCardHeader,
-  VenusCardSection,
-} from './venus-card.styles';
+import { VenusCardStyle } from './venus-card.styles';
 
 @Component({
   selector: 'venus-card',
   template: `
     <article [ngClass]="[style]">
-      <header [ngClass]="[header]">
-        <ng-content select="[card_header]"></ng-content>
-      </header>
-      <section [ngClass]="[section]">
-        <ng-content select="[card_section]"></ng-content>
-      </section>
+      <ng-content></ng-content>
     </article>
   `,
   styles: [],
 })
 export class VenusCardComponent implements OnInit {
   style: string = '';
-  header: string = '';
-  section: string = '';
 
-  @Input() variant: 'default' | 'full' = 'default';
+  @Input() full: boolean = false;
+  @Input() radius: 'sm' | 'md' | 'lg' = 'sm';
 
   ngOnInit(): void {
-    this.header = VenusCardHeader().className;
-    this.section = VenusCardSection().className;
-    if (this.variant == 'full') {
-      this.style = VenusCardStyle({ size: 'full' }).className;
+    if (this.full) {
+      this.style = VenusCardStyle({
+        size: 'full',
+        radii: this.radius,
+      }).className;
       return;
     }
-    this.style = VenusCardStyle().className;
+    this.style = VenusCardStyle({ radii: this.radius }).className;
   }
 }
