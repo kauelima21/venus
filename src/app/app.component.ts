@@ -6,10 +6,8 @@ import { div } from './app.styles';
   template: `
     <css-reset>
       <div style="display: grid; gap: 30px; padding: 60px;">
-        <h3 card_header>Resultado</h3>
-        <p card_section>
-          Faça uma busca usando algum solver e o resultado estara aqui.
-        </p>
+        <h3>Resultado</h3>
+        <p>Faça uma busca usando algum solver e o resultado estara aqui.</p>
         <venus-button>
           <venus-icon name="info" color="light" size="small"></venus-icon>
           Info

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { VenusButtonStyle } from './venus-button.styles';
 
 @Component({
@@ -10,7 +10,7 @@ import { VenusButtonStyle } from './venus-button.styles';
   `,
   styles: [],
 })
-export class VenusButtonComponent implements OnInit {
+export class VenusButtonComponent implements OnInit, OnChanges {
   @Input() type: 'button' | 'reset' | 'submit' = 'button';
   @Input() bg: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' =
     'primary';
@@ -26,5 +26,9 @@ export class VenusButtonComponent implements OnInit {
     }
 
     this.style = VenusButtonStyle(props).className;
+  }
+
+  ngOnChanges(): void {
+    this.ngOnInit();
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import {
   VenusBreadcrumbStyle,
   VenusBreadcrumbList,
@@ -26,7 +26,7 @@ import { Router } from '@angular/router';
   `,
   styles: [],
 })
-export class VenusBreadcrumbComponent implements OnInit {
+export class VenusBreadcrumbComponent implements OnInit, OnChanges {
   constructor(public router: Router) {}
   style: string = '';
   list: string = '';
@@ -34,10 +34,14 @@ export class VenusBreadcrumbComponent implements OnInit {
 
   @Input() paths: Array<any> = [];
 
-  ngOnInit() {
+  ngOnInit(): void {
     console.log(this.router.url);
     this.style = VenusBreadcrumbStyle().className;
     this.list = VenusBreadcrumbList().className;
     this.item = VenusBreadcrumbItem().className;
+  }
+
+  ngOnChanges(): void {
+    this.ngOnInit();
   }
 }

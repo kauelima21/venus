@@ -2,22 +2,49 @@
     "pipes": [],
     "interfaces": [
         {
-            "name": "paths",
-            "id": "interface-paths-47c527fdfb6940b1dbec02d5109da5dfd964bc6f68445e49ef86231b6f1f6c8166bfb3a5aa7f97a8b569f66292fd51ceef9df1233897fb013e14f54b4d47aa98",
-            "file": "projects/venus/src/lib/components/venus-breadcrumb/venus-breadcrumb.component.ts",
+            "name": "VenusTokens",
+            "id": "interface-VenusTokens-deead4ef26b69ec290700f13729965df7594b32147fc368d2c687681958b86d9eab5f68d63cca54e7c094212800b559dc98dd44589a8b126cff00bb72bd9a4e4",
+            "file": "projects/venus/src/lib/types/tokens.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport {\n  VenusBreadcrumbStyle,\n  VenusBreadcrumbList,\n} from './venus-breadcrumb.styles';\n\ninterface paths {\n  name: string;\n}\n\n@Component({\n  selector: 'venus-breadcrumb',\n  template: `\n    <div [ngClass]=\"[style]\">\n      <ul [ngClass]=\"[list]\">\n        <li *ngFor=\"let path of paths\" [ngClass]=\"[list]\">\n          <a>{{ path.name }}</a>\n        </li>\n      </ul>\n    </div>\n  `,\n  styles: [],\n})\nexport class VenusBreadcrumbComponent implements OnInit {\n  style: string = '';\n  list: string = '';\n\n  @Input() paths: paths[] = [];\n\n  ngOnInit(): void {\n    this.style = VenusBreadcrumbStyle().className;\n    this.list = VenusBreadcrumbList().className;\n  }\n}\n",
+            "sourceCode": "export interface VenusTokens {\r\n  colors?: {\r\n    background?: string;\r\n    primaryLow?: string;\r\n    primaryMid?: string;\r\n    primaryDark?: string;\r\n    secondaryLow?: string;\r\n    secondaryLight?: string;\r\n    secondaryRegular?: string;\r\n    secondaryMid?: string;\r\n    secondaryDark?: string;\r\n    success?: string;\r\n    successHover?: string;\r\n    danger?: string;\r\n    dangerHover?: string;\r\n    warning?: string;\r\n    warningHover?: string;\r\n    blue?: string;\r\n    blueHover?: string;\r\n    purple?: string;\r\n    purpleHover?: string;\r\n    black?: string;\r\n    white?: string;\r\n    gray?: string;\r\n  };\r\n\r\n  fontSizes?: {\r\n    xs?: string;\r\n    sm?: string;\r\n    md?: string;\r\n    lg?: string;\r\n    xl?: string;\r\n    xxl?: string;\r\n    xxxl?: string;\r\n  };\r\n\r\n  fontWeights?: {\r\n    regular?: string;\r\n    medium?: string;\r\n    bold?: string;\r\n  };\r\n\r\n  radii?: {\r\n    sm?: string;\r\n    md?: string;\r\n    lg?: string;\r\n    xl?: string;\r\n  };\r\n}\r\n",
             "properties": [
                 {
-                    "name": "name",
+                    "name": "colors",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
+                    "type": "literal type",
+                    "optional": true,
                     "description": "",
-                    "line": 8
+                    "line": 2
+                },
+                {
+                    "name": "fontSizes",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type",
+                    "optional": true,
+                    "description": "",
+                    "line": 27
+                },
+                {
+                    "name": "fontWeights",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type",
+                    "optional": true,
+                    "description": "",
+                    "line": 37
+                },
+                {
+                    "name": "radii",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type",
+                    "optional": true,
+                    "description": "",
+                    "line": 43
                 }
             ],
             "indexSignatures": [],
@@ -33,7 +60,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-c326d315231360f56992f194c2564bdf32da5d6bab97194ed335cf424f671bf10bc883d8e4f35ec8d47d38ec111c464976cf9733dc0e25a418d409917f811590",
+            "id": "component-AppComponent-c2c1669f09db56e20ebd5fefc9688c9f9edc5fd7a3a8aede76102a72e9d5986879db67c0b43d4e81343fb710b050bfb4851314a328296a81396983b21cb468c4",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -43,7 +70,7 @@
             "selector": "app-root",
             "styleUrls": [],
             "styles": [],
-            "template": "<css-reset>\n  <div style=\"display: grid; gap: 30px; padding: 60px;\">\n    <h3 card_header>Resultado</h3>\n    <p card_section>\n      Faça uma busca usando algum solver e o resultado estara aqui.\n    </p>\n    <venus-button>Buscar</venus-button>\n  </div>\n</css-reset>\n",
+            "template": "<css-reset>\n  <div style=\"display: grid; gap: 30px; padding: 60px;\">\n    <h3>Resultado</h3>\n    <p>Faça uma busca usando algum solver e o resultado estara aqui.</p>\n    <venus-button>\n      <venus-icon name=\"info\" color=\"light\" size=\"small\"></venus-icon>\n      Info\n    </venus-button>\n    <venus-button size=\"lg\" [full]=\"true\" bg=\"success\"\n      >Confirmar</venus-button\n    >\n    <venus-button size=\"lg\" bg=\"danger\">Cancelar</venus-button>\n    <venus-button size=\"sm\" bg=\"warning\">Comprar</venus-button>\n    <venus-card radius=\"lg\">\n      <venus-card-header title=\"Lorem ipsum\"></venus-card-header>\n      <venus-card-content>\n        <p>\n          Lorem ipsum dolor sit amet consectetur adipisicing elit. At sunt\n          incidunt accusantium dolorem quod nesciunt facere, sequi\n          consectetur assumenda laboriosam libero quidem sint ipsum, fugit\n          culpa, minus facilis vitae voluptatem expedita soluta autem\n          labore. Ullam quos, recusandae facilis similique assumenda eum\n          adipisci alias, incidunt rem veritatis quasi!\n        </p>\n      </venus-card-content>\n    </venus-card>\n  </div>\n</css-reset>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [],
@@ -57,7 +84,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 19
+                    "line": 38
                 }
             ],
             "methodsClass": [
@@ -67,7 +94,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 21,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -79,7 +106,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { div } from './app.styles';\n\n@Component({\n  selector: 'app-root',\n  template: `\n    <css-reset>\n      <div style=\"display: grid; gap: 30px; padding: 60px;\">\n        <h3 card_header>Resultado</h3>\n        <p card_section>\n          Faça uma busca usando algum solver e o resultado estara aqui.\n        </p>\n        <venus-button>Buscar</venus-button>\n      </div>\n    </css-reset>\n  `,\n})\nexport class AppComponent implements OnInit {\n  style = '';\n\n  ngOnInit() {\n    this.style = div().className;\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { div } from './app.styles';\n\n@Component({\n  selector: 'app-root',\n  template: `\n    <css-reset>\n      <div style=\"display: grid; gap: 30px; padding: 60px;\">\n        <h3>Resultado</h3>\n        <p>Faça uma busca usando algum solver e o resultado estara aqui.</p>\n        <venus-button>\n          <venus-icon name=\"info\" color=\"light\" size=\"small\"></venus-icon>\n          Info\n        </venus-button>\n        <venus-button size=\"lg\" [full]=\"true\" bg=\"success\"\n          >Confirmar</venus-button\n        >\n        <venus-button size=\"lg\" bg=\"danger\">Cancelar</venus-button>\n        <venus-button size=\"sm\" bg=\"warning\">Comprar</venus-button>\n        <venus-card radius=\"lg\">\n          <venus-card-header title=\"Lorem ipsum\"></venus-card-header>\n          <venus-card-content>\n            <p>\n              Lorem ipsum dolor sit amet consectetur adipisicing elit. At sunt\n              incidunt accusantium dolorem quod nesciunt facere, sequi\n              consectetur assumenda laboriosam libero quidem sint ipsum, fugit\n              culpa, minus facilis vitae voluptatem expedita soluta autem\n              labore. Ullam quos, recusandae facilis similique assumenda eum\n              adipisci alias, incidunt rem veritatis quasi!\n            </p>\n          </venus-card-content>\n        </venus-card>\n      </div>\n    </css-reset>\n  `,\n})\nexport class AppComponent implements OnInit {\n  style = '';\n\n  ngOnInit() {\n    this.style = div().className;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -134,7 +161,7 @@
         },
         {
             "name": "VenusBreadcrumbComponent",
-            "id": "component-VenusBreadcrumbComponent-47c527fdfb6940b1dbec02d5109da5dfd964bc6f68445e49ef86231b6f1f6c8166bfb3a5aa7f97a8b569f66292fd51ceef9df1233897fb013e14f54b4d47aa98",
+            "id": "component-VenusBreadcrumbComponent-8dd1d7af61e0f0ac68ec16b30b1b12fe204e878b74cd0160be1081bcfbee988e96702ba8c57022fa8cf517d46a0b420a2fb9e0d6179ab7eb108f128efe2a34be",
             "file": "projects/venus/src/lib/components/venus-breadcrumb/venus-breadcrumb.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -144,7 +171,7 @@
             "selector": "venus-breadcrumb",
             "styleUrls": [],
             "styles": [],
-            "template": "<div [ngClass]=\"[style]\">\n  <ul [ngClass]=\"[list]\">\n    <li *ngFor=\"let path of paths\" [ngClass]=\"[list]\">\n      <a>{{ path.name }}</a>\n    </li>\n  </ul>\n</div>\n",
+            "template": "<div [ngClass]=\"[style]\">\n  <ul [ngClass]=\"[list]\">\n    <li *ngFor=\"let path of paths\" [ngClass]=\"[item]\">\n      <a *ngIf=\"router.url === path.endpoint\">{{ path.name }}</a>\n      <ng-container *ngFor=\"let child of path.child\">\n        <ng-container *ngIf=\"router.url === child.endpoint\">\n          <a>{{ path.name }}</a>\n          <strong>></strong>\n          <a>{{ child.name }}</a>\n        </ng-container>\n      </ng-container>\n    </li>\n  </ul>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
@@ -153,13 +180,23 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 28,
-                    "type": "paths[]",
+                    "line": 35,
+                    "type": "Array<any>",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [
+                {
+                    "name": "item",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
+                },
                 {
                     "name": "list",
                     "defaultValue": "''",
@@ -168,7 +205,19 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 26
+                    "line": 32
+                },
+                {
+                    "name": "router",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Router",
+                    "optional": false,
+                    "description": "",
+                    "line": 30,
+                    "modifierKind": [
+                        123
+                    ]
                 },
                 {
                     "name": "style",
@@ -178,7 +227,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 25
+                    "line": 31
                 }
             ],
             "methodsClass": [
@@ -188,7 +237,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 37,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -200,17 +249,43 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport {\n  VenusBreadcrumbStyle,\n  VenusBreadcrumbList,\n} from './venus-breadcrumb.styles';\n\ninterface paths {\n  name: string;\n}\n\n@Component({\n  selector: 'venus-breadcrumb',\n  template: `\n    <div [ngClass]=\"[style]\">\n      <ul [ngClass]=\"[list]\">\n        <li *ngFor=\"let path of paths\" [ngClass]=\"[list]\">\n          <a>{{ path.name }}</a>\n        </li>\n      </ul>\n    </div>\n  `,\n  styles: [],\n})\nexport class VenusBreadcrumbComponent implements OnInit {\n  style: string = '';\n  list: string = '';\n\n  @Input() paths: paths[] = [];\n\n  ngOnInit(): void {\n    this.style = VenusBreadcrumbStyle().className;\n    this.list = VenusBreadcrumbList().className;\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\r\nimport {\r\n  VenusBreadcrumbStyle,\r\n  VenusBreadcrumbList,\r\n  VenusBreadcrumbItem,\r\n} from './venus-breadcrumb.styles';\r\nimport { Router } from '@angular/router';\r\n\r\n@Component({\r\n  selector: 'venus-breadcrumb',\r\n  template: `\r\n    <div [ngClass]=\"[style]\">\r\n      <ul [ngClass]=\"[list]\">\r\n        <li *ngFor=\"let path of paths\" [ngClass]=\"[item]\">\r\n          <a *ngIf=\"router.url === path.endpoint\">{{ path.name }}</a>\r\n          <ng-container *ngFor=\"let child of path.child\">\r\n            <ng-container *ngIf=\"router.url === child.endpoint\">\r\n              <a>{{ path.name }}</a>\r\n              <strong>></strong>\r\n              <a>{{ child.name }}</a>\r\n            </ng-container>\r\n          </ng-container>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  `,\r\n  styles: [],\r\n})\r\nexport class VenusBreadcrumbComponent implements OnInit {\r\n  constructor(public router: Router) {}\r\n  style: string = '';\r\n  list: string = '';\r\n  item: string = '';\r\n\r\n  @Input() paths: Array<any> = [];\r\n\r\n  ngOnInit() {\r\n    console.log(this.router.url);\r\n    this.style = VenusBreadcrumbStyle().className;\r\n    this.list = VenusBreadcrumbList().className;\r\n    this.item = VenusBreadcrumbItem().className;\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 29,
+                "jsdoctags": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
             "implements": [
                 "OnInit"
             ]
         },
         {
             "name": "VenusButtonComponent",
-            "id": "component-VenusButtonComponent-b019cdd80905bd3f17b1d2099733be68b32de175a8a7fc25d38d4db313d24bbc215d3632b5b816704eeb190f87e56f3e9043db1bc202b80ef091b30586983a36",
+            "id": "component-VenusButtonComponent-31f58e0132d9b97519c19808be8045b2dc0996a0db6ad282c5a2b64c74aaed701c07ab0b55ebe1cd9144da89f906a608411c8f70d560bd07b51d9aff9e0ba13b",
             "file": "projects/venus/src/lib/components/venus-button/venus-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -225,16 +300,16 @@
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "full",
-                    "defaultValue": "false",
+                    "name": "bg",
+                    "defaultValue": "'primary'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
-                    "type": "boolean",
+                    "line": 15,
+                    "type": "\"primary\" | \"secondary\" | \"danger\" | \"warning\" | \"success\"",
                     "decorators": []
                 },
                 {
-                    "name": "isDisabled",
+                    "name": "full",
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -243,21 +318,30 @@
                     "decorators": []
                 },
                 {
+                    "name": "isDisabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "\"sm\" | \"md\" | \"lg\"",
+                    "decorators": []
+                },
+                {
                     "name": "type",
                     "defaultValue": "'button'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 15,
+                    "line": 14,
                     "type": "\"button\" | \"reset\" | \"submit\"",
-                    "decorators": []
-                },
-                {
-                    "name": "variant",
-                    "defaultValue": "'primary'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 16,
-                    "type": "\"primary\" | \"secondary\" | \"danger\" | \"warning\" | \"success\"",
                     "decorators": []
                 }
             ],
@@ -293,7 +377,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { TransformProps } from '@stitches/core/types/styled-component';\nimport { VenusButtonStyle } from './venus-button.styles';\n\n@Component({\n  selector: 'venus-button',\n  template: `\n    <button [ngClass]=\"[style]\" [disabled]=\"isDisabled\" [type]=\"type\">\n      <ng-content></ng-content>\n    </button>\n  `,\n  styles: [],\n})\nexport class VenusButtonComponent implements OnInit {\n  @Input() type: 'button' | 'reset' | 'submit' = 'button';\n  @Input() variant: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' =\n    'primary';\n  @Input() full: boolean = false;\n  @Input() isDisabled: boolean = false;\n  style: string = '';\n\n  ngOnInit(): void {\n    let props: TransformProps<\n      {\n        bg?:\n          | 'primary'\n          | 'secondary'\n          | 'danger'\n          | 'warning'\n          | 'success'\n          | undefined;\n        size?: 'full' | undefined;\n      },\n      {}\n    > = { bg: this.variant };\n    if (this.full) {\n      props.size = 'full';\n    }\n\n    this.style = VenusButtonStyle(props).className;\n  }\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { VenusButtonStyle } from './venus-button.styles';\n\n@Component({\n  selector: 'venus-button',\n  template: `\n    <button [ngClass]=\"[style]\" [disabled]=\"isDisabled\" [type]=\"type\">\n      <ng-content></ng-content>\n    </button>\n  `,\n  styles: [],\n})\nexport class VenusButtonComponent implements OnInit {\n  @Input() type: 'button' | 'reset' | 'submit' = 'button';\n  @Input() bg: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' =\n    'primary';\n  @Input() size: 'sm' | 'md' | 'lg' = 'md';\n  @Input() isDisabled: boolean = false;\n  @Input() full: boolean = false;\n  style: string = '';\n\n  ngOnInit(): void {\n    let props: any = { bg: this.bg, size: this.size };\n    if (this.full) {\n      props.width = 'full';\n    }\n\n    this.style = VenusButtonStyle(props).className;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -303,7 +387,7 @@
         },
         {
             "name": "VenusCardComponent",
-            "id": "component-VenusCardComponent-aefe46382f04a1287b6594e8fcda4515c7c11d06e8a33d8a24c886a7b887a9769a0c4819d5efe1ae3730baac0a4e9df30d2b776f0da6578bc482b636f91dc515",
+            "id": "component-VenusCardComponent-5bf72b266526b1374860947f66464456ca4f4f20ca9810f8e17f8b099c9ff5d849186f7a599dd59461aae661600e73db4b0d9056a5901212996e2af69f40fdca",
             "file": "projects/venus/src/lib/components/venus-card/venus-card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -313,42 +397,31 @@
             "selector": "venus-card",
             "styleUrls": [],
             "styles": [],
-            "template": "<article [ngClass]=\"[style]\">\n  <header [ngClass]=\"[header]\">\n    <ng-content select=\"[card_header]\"></ng-content>\n  </header>\n  <section [ngClass]=\"[section]\">\n    <ng-content select=\"[card_section]\"></ng-content>\n  </section>\n</article>\n",
+            "template": "<article [ngClass]=\"[style]\">\n  <ng-content></ng-content>\n</article>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "variant",
-                    "defaultValue": "'default'",
+                    "name": "full",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
-                    "type": "\"default\" | \"full\"",
+                    "line": 16,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "radius",
+                    "defaultValue": "'sm'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "\"sm\" | \"md\" | \"lg\"",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [
-                {
-                    "name": "header",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 24
-                },
-                {
-                    "name": "section",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 25
-                },
                 {
                     "name": "style",
                     "defaultValue": "''",
@@ -357,7 +430,212 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 23
+                    "line": 14
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { VenusCardStyle } from './venus-card.styles';\r\n\r\n@Component({\r\n  selector: 'venus-card',\r\n  template: `\r\n    <article [ngClass]=\"[style]\">\r\n      <ng-content></ng-content>\r\n    </article>\r\n  `,\r\n  styles: [],\r\n})\r\nexport class VenusCardComponent implements OnInit {\r\n  style: string = '';\r\n\r\n  @Input() full: boolean = false;\r\n  @Input() radius: 'sm' | 'md' | 'lg' = 'sm';\r\n\r\n  ngOnInit(): void {\r\n    if (this.full) {\r\n      this.style = VenusCardStyle({\r\n        size: 'full',\r\n        radii: this.radius,\r\n      }).className;\r\n      return;\r\n    }\r\n    this.style = VenusCardStyle({ radii: this.radius }).className;\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "implements": [
+                "OnInit"
+            ]
+        },
+        {
+            "name": "VenusCardContentComponent",
+            "id": "component-VenusCardContentComponent-2fd05a4d3b4054e818b0db51f045bd108f42a010f32b1aa24fb13e3eb78ff6b8143db4979b744d1660fea69da417a436530a2adee18fe494c809be4c86db173f",
+            "file": "projects/venus/src/lib/components/venus-card/venus-card-content/venus-card-content.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "venus-card-content",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<section [ngClass]=\"style\">\n  <ng-content></ng-content>\n</section>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "style",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { VenusCardContentStyle } from './venus-card-content.styles';\n\n@Component({\n  selector: 'venus-card-content',\n  template: `\n    <section [ngClass]=\"style\">\n      <ng-content></ng-content>\n    </section>\n  `,\n  styles: [],\n})\nexport class VenusCardContentComponent implements OnInit {\n  style: string = '';\n\n  ngOnInit() {\n    this.style = VenusCardContentStyle().className;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "implements": [
+                "OnInit"
+            ]
+        },
+        {
+            "name": "VenusCardHeaderComponent",
+            "id": "component-VenusCardHeaderComponent-195fd9309e073e0efe74e2f8bf38b655095c0bf6a1e346a416ccb5e92cf06bf45a6cd8d2273dbdd6b269e79af0463cc50cd8b52f43e587c5b6c102cfb7b99d5b",
+            "file": "projects/venus/src/lib/components/venus-card/venus-card-header/venus-card-header.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "venus-card-header",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<header [ngClass]=\"style\">\n  <h2>{{ title }}</h2>\n  <ng-content></ng-content>\n</header>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "style",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { VenusCardHeaderStyle } from './venus-card-header.styles';\n\n@Component({\n  selector: 'venus-card-header',\n  template: `\n    <header [ngClass]=\"style\">\n      <h2>{{ title }}</h2>\n      <ng-content></ng-content>\n    </header>\n  `,\n  styles: [],\n})\nexport class VenusCardHeaderComponent implements OnInit {\n  @Input() title!: string;\n  style: string = '';\n\n  ngOnInit() {\n    this.style = VenusCardHeaderStyle().className;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "implements": [
+                "OnInit"
+            ]
+        },
+        {
+            "name": "VenusIconsComponent",
+            "id": "component-VenusIconsComponent-9efcead5ff0f34f58da31f1791a773d3d564637ccdf83bc8a53b3ea4974df84d2c6e3eed4396f28fa65b496eed2c0d0428eadd1d53f132da7f6fb30607fcf99e",
+            "file": "projects/venus/src/lib/components/venus-icon/venus-icon.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "venus-icon",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "'dark'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "\"dark\" | \"light\" | \"primary\"",
+                    "decorators": []
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'small'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "\"small\" | \"large\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "style",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 27
                 }
             ],
             "methodsClass": [
@@ -374,18 +652,94 @@
             ],
             "deprecated": false,
             "deprecationMessage": "",
-            "hostBindings": [],
+            "hostBindings": [
+                {
+                    "name": "class",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
             "hostListeners": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport {\r\n  VenusCardStyle,\r\n  VenusCardHeader,\r\n  VenusCardSection,\r\n} from './venus-card.styles';\r\n\r\n@Component({\r\n  selector: 'venus-card',\r\n  template: `\r\n    <article [ngClass]=\"[style]\">\r\n      <header [ngClass]=\"[header]\">\r\n        <ng-content select=\"[card_header]\"></ng-content>\r\n      </header>\r\n      <section [ngClass]=\"[section]\">\r\n        <ng-content select=\"[card_section]\"></ng-content>\r\n      </section>\r\n    </article>\r\n  `,\r\n  styles: [],\r\n})\r\nexport class VenusCardComponent implements OnInit {\r\n  style: string = '';\r\n  header: string = '';\r\n  section: string = '';\r\n\r\n  @Input() variant: 'default' | 'full' = 'default';\r\n\r\n  ngOnInit(): void {\r\n    this.header = VenusCardHeader().className;\r\n    this.section = VenusCardSection().className;\r\n    if (this.variant == 'full') {\r\n      this.style = VenusCardStyle({ size: 'full' }).className;\r\n      return;\r\n    }\r\n    this.style = VenusCardStyle().className;\r\n  }\r\n}\r\n",
+            "sourceCode": "import {\n  Component,\n  Input,\n  ChangeDetectionStrategy,\n  ElementRef,\n  OnInit,\n  HostBinding,\n} from '@angular/core';\nimport { VenusIcons } from './venus-icons';\nimport { VenusIconStyle } from './venus-icon.styles';\n\n@Component({\n  selector: 'venus-icon',\n  template: `<ng-content></ng-content>`,\n  styles: [],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class VenusIconsComponent implements OnInit {\n  constructor(private element: ElementRef) {}\n\n  @Input() set name(iconName: string) {\n    this.element.nativeElement.innerHTML = VenusIcons[iconName] || null;\n  }\n\n  @Input() color: 'dark' | 'light' | 'primary' = 'dark';\n  @Input() size: 'small' | 'large' = 'small';\n  style: string = '';\n\n  ngOnInit(): void {\n    this.style = VenusIconStyle({\n      fill: this.color,\n      size: this.size,\n    }).className;\n  }\n\n  @HostBinding('class') get IconClass() {\n    return this.style;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "element",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 18,
+                "jsdoctags": [
+                    {
+                        "name": "element",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
             "implements": [
                 "OnInit"
-            ]
+            ],
+            "accessors": {
+                "name": {
+                    "name": "name",
+                    "setSignature": {
+                        "name": "name",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "iconName",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 21,
+                        "jsdoctags": [
+                            {
+                                "name": "iconName",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "IconClass": {
+                    "name": "IconClass",
+                    "getSignature": {
+                        "name": "IconClass",
+                        "type": "",
+                        "returnType": "",
+                        "line": 36
+                    }
+                }
+            }
         },
         {
             "name": "VenusInputComponent",
@@ -484,13 +838,13 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-c38b6cb28eaa071787ac4687e241cf8b5f93ed2494fb34da95840363340b70a393f28ec9381b438a462ae88d3631b5e751b94bf5ff389230256c76ac08d76af0",
+            "id": "module-AppModule-8d230dc984d0a08ba29a98799da9ecfb5124dbe77f08a208b89573afe6cc20cdac4b54e365587d00bed3b7f00ed506719867fcf8a21907da70331e1c6c2729a9",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { VenusModule } from 'dist/venus';\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  declarations: [AppComponent],\n  providers: [],\n  bootstrap: [AppComponent],\n  imports: [BrowserModule, VenusModule],\n})\nexport class AppModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { VenusModule } from 'venus';\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  declarations: [AppComponent],\n  providers: [],\n  bootstrap: [AppComponent],\n  imports: [BrowserModule, VenusModule],\n})\nexport class AppModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -532,13 +886,13 @@
         },
         {
             "name": "VenusModule",
-            "id": "module-VenusModule-b328af8124503fa071fea38311030485101200b1efc006e394a7d1af1a4d71e9dfc9a38a01ec201f653a9754d1fae2b58253c1a79a709d65f906f5535a82afcd",
+            "id": "module-VenusModule-98c3a9e94d40b4b6567eaefaffda0ccbef4bcae58171a74545e8217959de71a29222323fbe317edfa1b3d7e441e77057d6a74a188cb982fa118cdc1a8a4deb4a",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/venus/src/lib/venus.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { VenusButtonComponent } from '../public-api';\nimport { VenusInputComponent } from './components/venus-input/venus-input.component';\nimport { VenusCardComponent } from './components/venus-card/venus-card.component';\nimport { CssResetComponent } from './components/css-reset/css-reset.component';\nimport { RouterModule } from '@angular/router';\nimport { VenusBreadcrumbComponent } from './components/venus-breadcrumb/venus-breadcrumb.component';\n\n@NgModule({\n  declarations: [\n    VenusButtonComponent,\n    VenusInputComponent,\n    VenusCardComponent,\n    CssResetComponent,\n    VenusCardComponent,\n    VenusBreadcrumbComponent,\n  ],\n  imports: [CommonModule, RouterModule],\n  exports: [\n    VenusButtonComponent,\n    VenusInputComponent,\n    VenusCardComponent,\n    CssResetComponent,\n    VenusCardComponent,\n    VenusBreadcrumbComponent,\n  ],\n})\nexport class VenusModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterModule } from '@angular/router';\nimport { CssResetComponent } from './components/css-reset/css-reset.component';\nimport { VenusButtonComponent } from '../public-api';\nimport { VenusInputComponent } from './components/venus-input/venus-input.component';\nimport { VenusIconsComponent } from './components/venus-icon/venus-icon.component';\nimport { VenusBreadcrumbComponent } from './components/venus-breadcrumb/venus-breadcrumb.component';\nimport { VenusCardComponent } from './components/venus-card/venus-card.component';\nimport { VenusCardHeaderComponent } from './components/venus-card/venus-card-header/venus-card-header.component';\nimport { VenusCardContentComponent } from './components/venus-card/venus-card-content/venus-card-content.component';\n\n@NgModule({\n  declarations: [\n    CssResetComponent,\n    VenusButtonComponent,\n    VenusInputComponent,\n    VenusIconsComponent,\n    VenusBreadcrumbComponent,\n    VenusCardComponent,\n    VenusCardHeaderComponent,\n    VenusCardContentComponent,\n  ],\n  imports: [CommonModule, RouterModule],\n  exports: [\n    CssResetComponent,\n    VenusButtonComponent,\n    VenusInputComponent,\n    VenusIconsComponent,\n    VenusBreadcrumbComponent,\n    VenusCardComponent,\n    VenusCardHeaderComponent,\n    VenusCardContentComponent,\n  ],\n})\nexport class VenusModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -560,7 +914,13 @@
                             "name": "VenusCardComponent"
                         },
                         {
-                            "name": "VenusCardComponent"
+                            "name": "VenusCardContentComponent"
+                        },
+                        {
+                            "name": "VenusCardHeaderComponent"
+                        },
+                        {
+                            "name": "VenusIconsComponent"
                         },
                         {
                             "name": "VenusInputComponent"
@@ -587,7 +947,13 @@
                             "name": "VenusCardComponent"
                         },
                         {
-                            "name": "VenusCardComponent"
+                            "name": "VenusCardContentComponent"
+                        },
+                        {
+                            "name": "VenusCardHeaderComponent"
+                        },
+                        {
+                            "name": "VenusIconsComponent"
                         },
                         {
                             "name": "VenusInputComponent"
@@ -611,31 +977,31 @@
                 "name": "Base",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/input/Input.stories.ts",
+                "file": "src/stories/Input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "StoryObj<VenusInputComponent>",
-                "defaultValue": "{\r\n  args: {\r\n    name: 'generic_name',\r\n    placeholder: 'Placeholder',\r\n  },\r\n}"
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
-                "name": "colors",
+                "name": "Base",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/docs/colors.ts",
+                "file": "projects/venus/src/lib/components/venus-input/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "defaultTheme",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/venus/src/lib/stitches.config.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\r\n  '$primary-low': '#0ADBE3',\r\n  '$primary-light': '#37B6C4',\r\n  '$primary-mid': '#039BE5',\r\n  '$primary-dark': '#037F9C',\r\n  '$secondary-low': '#D5CCC3',\r\n  '$secondary-light': '#8A817B',\r\n  '$secondary-mid': '#707070',\r\n  '$secondary-dark': '#484440',\r\n  '$background-low': '#F8F9FA',\r\n  '$background-mid': '#F1F1F1',\r\n  $warning: '#FEAC0E',\r\n  '$warning-hover': ' #ED9C2E',\r\n  '$gray-low': ' #EEEEEE',\r\n  '$gray-dark': ' #363636',\r\n  $danger: '#D93025',\r\n  '$danger-hover': ' #952C0C',\r\n  $blue: '#0897E9',\r\n  $success: '#1E8E3E',\r\n  '$success-hover': ' #1D7030',\r\n  $purple: '#6B48FF',\r\n  $black: '#000000',\r\n  $white: '#FFFFFF',\r\n}"
-            },
-            {
-                "name": "Disabled",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/input/Input.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "StoryObj<VenusInputComponent>",
-                "defaultValue": "{\r\n  args: {\r\n    name: 'generic_name',\r\n    placeholder: 'Placeholder',\r\n    isDisabled: true,\r\n  },\r\n}"
+                "defaultValue": "{\r\n  colors: {\r\n    background: '#FBFBFB',\r\n    primaryLow: '#67F5FF',\r\n    primaryMid: '#37B6C4',\r\n    primaryDark: '#037F9C',\r\n    secondaryLow: '#E1E1E6',\r\n    secondaryLight: '#D9D9D9',\r\n    secondaryRegular: '#707070',\r\n    secondaryMid: '#4E4A45',\r\n    secondaryDark: '#484440',\r\n    success: '#00B37E',\r\n    successHover: '#00875F',\r\n    danger: '#D94352',\r\n    dangerHover: '#F76C82',\r\n    warning: '#F5B946',\r\n    warningHover: '#FCD277',\r\n    blue: '#4863F7',\r\n    blueHover: '#3249CB',\r\n    purple: '#8257E5',\r\n    purpleHover: '#633BBC',\r\n    black: '#000000',\r\n    white: '#FFFFFF',\r\n    gray: '#EFEFF2',\r\n  },\r\n\r\n  fontSizes: {\r\n    xs: '0.75rem',\r\n    sm: '0.875rem',\r\n    md: '1rem',\r\n    lg: '1.125rem',\r\n    xl: '1.5rem',\r\n    xxl: '2rem',\r\n    xxxl: '3rem',\r\n  },\r\n\r\n  fontWeights: {\r\n    regular: '400',\r\n    medium: '500',\r\n    bold: '700',\r\n  },\r\n\r\n  radii: {\r\n    sm: '5px',\r\n    md: '8px',\r\n    lg: '12px',\r\n    xl: '20px',\r\n  },\r\n}"
             },
             {
                 "name": "div",
@@ -655,35 +1021,46 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "globalCss({\r\n  '@font-face': {\r\n    fontFamily: 'OpenSans',\r\n    src: \"url('/assets/OpenSans-Regular.ttf')\",\r\n  },\r\n  '@import':\r\n    \"url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap')\",\r\n  '*': {\r\n    margin: 0,\r\n    padding: 0,\r\n    boxSizing: 'border-box',\r\n    fontFamily: \"'Open Sans', sans-serif\",\r\n  },\r\n  a: { display: 'inline-block', textDecoration: 'none' },\r\n  ul: { listStyle: 'none' },\r\n  ol: { listStyle: 'none' },\r\n  img: { maxWidth: '100%', display: 'inline-block' },\r\n  h1: { fontSize: '3rem' },\r\n  h2: { fontSize: '2rem' },\r\n  h3: { fontSize: '1.5rem' },\r\n  p: { fontSize: '1rem' },\r\n  table: { borderCollapse: 'collapse', borderSpacing: 0 },\r\n})"
+                "defaultValue": "globalCss({\r\n  '@font-face': {\r\n    fontFamily: 'OpenSans',\r\n    src: \"url('/assets/OpenSans-Regular.ttf')\",\r\n  },\r\n  '@import':\r\n    \"url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap')\",\r\n  '*': {\r\n    margin: 0,\r\n    padding: 0,\r\n    boxSizing: 'border-box',\r\n    fontFamily: \"'Open Sans', sans-serif\",\r\n  },\r\n  a: { display: 'inline-block', textDecoration: 'none' },\r\n  ul: { listStyle: 'none' },\r\n  ol: { listStyle: 'none' },\r\n  img: { maxWidth: '100%', display: 'inline-block' },\r\n  h1: { fontSize: '2rem' },\r\n  h2: { fontSize: '1.5rem' },\r\n  h3: { fontSize: '1.25rem' },\r\n  p: { fontSize: '1rem' },\r\n  table: { borderCollapse: 'collapse', borderSpacing: 0 },\r\n})"
             },
             {
-                "name": "lightColors",
+                "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/docs/colors.ts",
+                "file": "src/stories/Input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "[]",
-                "defaultValue": "[\r\n  '$secondary-low',\r\n  '$background-low',\r\n  '$background-mid',\r\n  '$gray-low',\r\n  '$white',\r\n  '$warning',\r\n  '$warning-hover',\r\n]"
+                "type": "Story<VenusInputComponent>",
+                "defaultValue": "(args: VenusInputComponent) => ({\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/venus/src/lib/components/venus-input/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<VenusInputComponent>",
+                "defaultValue": "(args: VenusInputComponent) => ({\r\n  props: args,\r\n})"
             },
             {
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/styles.ts",
+                "file": "projects/venus/src/lib/stitches.config.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "createStitches({\r\n  theme: {\r\n    colors: {\r\n      text: 'black',\r\n      primary: 'blue',\r\n      onPrimary: 'white',\r\n    },\r\n    fontSizes: {\r\n      1: '0.875rem',\r\n      2: '1rem',\r\n      3: '1.125rem',\r\n      4: '1.5rem',\r\n      5: '2rem',\r\n    },\r\n    space: {\r\n      1: '0.25rem',\r\n      2: '0.5rem',\r\n      3: '0.75rem',\r\n      4: '1rem',\r\n      5: '2rem',\r\n    },\r\n  },\r\n})"
+                "defaultValue": "createStitches({\r\n  theme: defaultTheme,\r\n})"
             },
             {
+                "name": "VenusBreadcrumbItem",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/venus/src/lib/styles.ts",
+                "file": "projects/venus/src/lib/components/venus-breadcrumb/venus-breadcrumb.styles.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "createStitches({\r\n  theme: {\r\n    colors: {\r\n      background: '#FBFBFB',\r\n      primaryLow: '#67F5FF',\r\n      primaryMid: '#37B6C4',\r\n      primaryDark: '#037F9C',\r\n      secondaryLow: '#E1E1E6',\r\n      secondaryLight: '#D9D9D9',\r\n      secondaryRegular: '#707070',\r\n      secondaryMid: '#4E4A45',\r\n      secondaryDark: '#484440',\r\n      success: '#00B37E',\r\n      successHover: '#00875F',\r\n      danger: '#D94352',\r\n      dangerHover: '#F76C82',\r\n      warning: '#F5B946',\r\n      warningHover: '#FCD277',\r\n      blue: '#4863F7',\r\n      blueHover: '#3249CB',\r\n      purple: '#8257E5',\r\n      purpleHover: '#633BBC',\r\n      black: '#000000',\r\n      white: '#FFFFFF',\r\n      gray: '#EFEFF2',\r\n    },\r\n\r\n    fontSizes: {\r\n      xs: '0.75rem',\r\n      sm: '0.875rem',\r\n      md: '1rem',\r\n      lg: '1.125rem',\r\n      xl: '1.5rem',\r\n      xxl: '2rem',\r\n      xxxl: '3rem',\r\n    },\r\n\r\n    fontWeights: {\r\n      regular: '400',\r\n      medium: '500',\r\n      bold: '700',\r\n    },\r\n\r\n    radii: {\r\n      sm: '5px',\r\n      md: '8px',\r\n      lg: '12px',\r\n      xl: '20px',\r\n    },\r\n  },\r\n})"
+                "defaultValue": "css({\r\n  color: '$secondaryRegular',\r\n  '&:hover': {\r\n    color: '$secondaryMid',\r\n  },\r\n  cursor: 'pointer',\r\n})"
             },
             {
                 "name": "VenusBreadcrumbList",
@@ -703,7 +1080,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "css({\r\n  color: '$secondaryMid',\r\n  backgroundColor: '$white',\r\n  border: 'none',\r\n  outline: 'none',\r\n  padding: '20px',\r\n  height: '60xp',\r\n  boxShadow: '0px 2px 4px #D9D9D9',\r\n})"
+                "defaultValue": "css({\r\n  fontWeight: '$bold',\r\n  padding: '20px',\r\n  height: '60px',\r\n  border: 'none',\r\n  outline: 'none',\r\n  backgroundColor: '$white',\r\n  boxShadow: '0px 2px 4px #D9D9D9',\r\n})"
             },
             {
                 "name": "VenusButtonStyle",
@@ -713,27 +1090,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "css({\r\n  height: '40px',\r\n  padding: '0 1.5rem',\r\n  color: '$white',\r\n  textTransform: 'uppercase',\r\n  fontSize: '$sm',\r\n  fontWeight: '$bold',\r\n  backgroundColor: '$primaryMid',\r\n  border: 'none',\r\n  borderRadius: '$sm',\r\n  cursor: 'pointer',\r\n  transition: '.3s',\r\n\r\n  variants: {\r\n    bg: {\r\n      primary: {\r\n        backgroundColor: '$primaryMid',\r\n        '&:hover': {\r\n          backgroundColor: '$primaryDark',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(41, 182, 197, .5)',\r\n          color: 'rgba(255, 255, 255, .5)',\r\n        },\r\n      },\r\n      secondary: {\r\n        backgroundColor: '$secondaryLow',\r\n        color: '$secondaryRegular',\r\n        '&:hover': {\r\n          backgroundColor: '$secondaryRegular',\r\n          color: '$secondaryLow',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: '$gray',\r\n          color: 'rgba(112, 112, 112, .5)',\r\n        },\r\n      },\r\n      danger: {\r\n        backgroundColor: '$danger',\r\n        '&:hover': {\r\n          backgroundColor: '$dangerHover',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(217, 67, 82, .5)',\r\n          color: 'rgba(255, 255, 255, .5)',\r\n        },\r\n      },\r\n      success: {\r\n        backgroundColor: '$success',\r\n        '&:hover': {\r\n          backgroundColor: '$successHover',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(0, 179, 126, .5)',\r\n          color: 'rgba(255, 255, 255, .5)',\r\n        },\r\n      },\r\n      warning: {\r\n        backgroundColor: '$warning',\r\n        color: '$secondaryMid',\r\n        '&:hover': {\r\n          backgroundColor: '$warningHover',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(245, 185, 70, .5)',\r\n          color: 'rgba(78, 74, 69, .5)',\r\n        },\r\n      },\r\n    },\r\n    size: {\r\n      full: {\r\n        width: '100%',\r\n      },\r\n    },\r\n  },\r\n})"
+                "defaultValue": "css({\r\n  color: '$white',\r\n  textTransform: 'uppercase',\r\n  fontWeight: '$bold',\r\n  backgroundColor: '$primaryMid',\r\n  border: 'none',\r\n  borderRadius: '$sm',\r\n  cursor: 'pointer',\r\n  transition: '.3s',\r\n  display: 'flex',\r\n  alignItems: 'center',\r\n  justifyContent: 'center',\r\n  gap: '5px',\r\n\r\n  variants: {\r\n    bg: {\r\n      primary: {\r\n        backgroundColor: '$primaryMid',\r\n        '&:hover': {\r\n          backgroundColor: '$primaryDark',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(41, 182, 197, .5)',\r\n          color: 'rgba(255, 255, 255, .5)',\r\n        },\r\n      },\r\n      secondary: {\r\n        backgroundColor: '$secondaryLow',\r\n        color: '$secondaryRegular',\r\n        '&:hover': {\r\n          backgroundColor: '$secondaryRegular',\r\n          color: '$secondaryLow',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: '$gray',\r\n          color: 'rgba(112, 112, 112, .5)',\r\n        },\r\n      },\r\n      danger: {\r\n        backgroundColor: '$danger',\r\n        '&:hover': {\r\n          backgroundColor: '$dangerHover',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(217, 67, 82, .5)',\r\n          color: 'rgba(255, 255, 255, .5)',\r\n        },\r\n      },\r\n      success: {\r\n        backgroundColor: '$success',\r\n        '&:hover': {\r\n          backgroundColor: '$successHover',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(0, 179, 126, .5)',\r\n          color: 'rgba(255, 255, 255, .5)',\r\n        },\r\n      },\r\n      warning: {\r\n        backgroundColor: '$warning',\r\n        color: '$secondaryMid',\r\n        '&:hover': {\r\n          backgroundColor: '$warningHover',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(245, 185, 70, .5)',\r\n          color: 'rgba(78, 74, 69, .5)',\r\n        },\r\n      },\r\n    },\r\n    size: {\r\n      md: {\r\n        height: '40px',\r\n        fontSize: '$sm',\r\n        padding: '0 1rem',\r\n      },\r\n      lg: {\r\n        height: '50px',\r\n        fontSize: '$md',\r\n        padding: '0 1.5rem',\r\n      },\r\n      sm: {\r\n        height: '30px',\r\n        fontSize: '$xs',\r\n        padding: '0 .8rem',\r\n      },\r\n    },\r\n    width: {\r\n      full: {\r\n        width: '100%',\r\n      },\r\n    },\r\n  },\r\n})"
             },
             {
-                "name": "VenusCardHeader",
+                "name": "VenusCardContentStyle",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/venus/src/lib/components/venus-card/venus-card.styles.ts",
+                "file": "projects/venus/src/lib/components/venus-card/venus-card-content/venus-card-content.styles.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "css({\r\n  fontWeight: '$bold',\r\n  padding: '18px',\r\n  fontSize: '$lg',\r\n  borderBottom: '1px solid $secondaryRegular',\r\n})"
+                "defaultValue": "css({\r\n  padding: '24px 18px',\r\n  fontWeight: '$medium',\r\n  fontSize: '$md',\r\n})"
             },
             {
-                "name": "VenusCardSection",
+                "name": "VenusCardHeaderStyle",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/venus/src/lib/components/venus-card/venus-card.styles.ts",
+                "file": "projects/venus/src/lib/components/venus-card/venus-card-header/venus-card-header.styles.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "css({\r\n  padding: '24px 18px',\r\n  fontWeight: '$bold',\r\n  fontSize: '$md',\r\n})"
+                "defaultValue": "css({\r\n  fontWeight: '$bold',\r\n  padding: '18px',\r\n  borderBottom: '1px solid $secondaryRegular',\r\n})"
             },
             {
                 "name": "VenusCardStyle",
@@ -743,7 +1120,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "css({\r\n  color: '$secondaryMid',\r\n  backgroundColor: '$gray',\r\n  border: 'none',\r\n  borderRadius: '$lg',\r\n  outline: 'none',\r\n  width: '475px',\r\n  variants: {\r\n    size: {\r\n      full: {\r\n        width: '100%',\r\n      },\r\n    },\r\n  },\r\n})"
+                "defaultValue": "css({\r\n  color: '$secondaryMid',\r\n  backgroundColor: '$gray',\r\n  border: 'none',\r\n  outline: 'none',\r\n  width: '475px',\r\n  variants: {\r\n    size: {\r\n      full: {\r\n        width: '100%',\r\n      },\r\n    },\r\n    radii: {\r\n      sm: {\r\n        borderRadius: '$sm',\r\n      },\r\n      md: {\r\n        borderRadius: '$md',\r\n      },\r\n      lg: {\r\n        borderRadius: '$lg',\r\n      },\r\n    },\r\n  },\r\n})"
+            },
+            {
+                "name": "VenusIcons",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/venus/src/lib/components/venus-icon/venus-icons.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "any",
+                "defaultValue": "{\r\n  home: '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"M11 39h7.5V26.5h11V39H37V19.5L24 9.75 11 19.5Zm-3 3V18L24 6l16 12v24H26.5V29.5h-5V42Zm16-17.65Z\"/></svg>',\r\n  tools:\r\n    '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"M38.4 42 25.85 29.45l2.85-2.85 12.55 12.55ZM9.35 42 6.5 39.15 21 24.65l-5.35-5.35-1.15 1.15-2.2-2.2v4.25l-1.2 1.2L5 17.6l1.2-1.2h4.3L8.1 14l6.55-6.55q.85-.85 1.85-1.15 1-.3 2.2-.3 1.2 0 2.2.425 1 .425 1.85 1.275l-5.35 5.35 2.4 2.4-1.2 1.2 5.2 5.2 6.1-6.1q-.4-.65-.625-1.5-.225-.85-.225-1.8 0-2.65 1.925-4.575Q32.9 5.95 35.55 5.95q.75 0 1.275.15.525.15.875.4l-4.25 4.25 3.75 3.75 4.25-4.25q.25.4.425.975t.175 1.325q0 2.65-1.925 4.575Q38.2 19.05 35.55 19.05q-.9 0-1.55-.125t-1.2-.375Z\"/></svg>',\r\n  info: '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"M22.65 34h3V22h-3ZM24 18.3q.7 0 1.175-.45.475-.45.475-1.15t-.475-1.2Q24.7 15 24 15q-.7 0-1.175.5-.475.5-.475 1.2t.475 1.15q.475.45 1.175.45ZM24 44q-4.1 0-7.75-1.575-3.65-1.575-6.375-4.3-2.725-2.725-4.3-6.375Q4 28.1 4 23.95q0-4.1 1.575-7.75 1.575-3.65 4.3-6.35 2.725-2.7 6.375-4.275Q19.9 4 24.05 4q4.1 0 7.75 1.575 3.65 1.575 6.35 4.275 2.7 2.7 4.275 6.35Q44 19.85 44 24q0 4.1-1.575 7.75-1.575 3.65-4.275 6.375t-6.35 4.3Q28.15 44 24 44Zm.05-3q7.05 0 12-4.975T41 23.95q0-7.05-4.95-12T24 7q-7.05 0-12.025 4.95Q7 16.9 7 24q0 7.05 4.975 12.025Q16.95 41 24.05 41ZM24 24Z\"/></svg>',\r\n  clock:\r\n    '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"m31.35 33.65 2.25-2.25-7.95-8V13.35h-3V24.6ZM24 44q-4.1 0-7.75-1.575-3.65-1.575-6.375-4.3-2.725-2.725-4.3-6.375Q4 28.1 4 24t1.575-7.75q1.575-3.65 4.3-6.375 2.725-2.725 6.375-4.3Q19.9 4 24 4t7.75 1.575q3.65 1.575 6.375 4.3 2.725 2.725 4.3 6.375Q44 19.9 44 24t-1.575 7.75q-1.575 3.65-4.3 6.375-2.725 2.725-6.375 4.3Q28.1 44 24 44Zm0-20Zm0 17q7 0 12-5t5-12q0-7-5-12T24 7q-7 0-12 5T7 24q0 7 5 12t12 5Z\"/></svg>',\r\n  menu: '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z\"/></svg>',\r\n  expand_more:\r\n    '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"m24 30.75-12-12 2.15-2.15L24 26.5l9.85-9.85L36 18.8Z\"/></svg>',\r\n  navigate_next:\r\n    '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"m18.75 36-2.15-2.15 9.9-9.9-9.9-9.9 2.15-2.15L30.8 23.95Z\"/></svg>',\r\n  totvs:\r\n    '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"m 138.39199,163.61216 h -0.74877 v 2.72706 a 0.09339792,0.09339792 0 0 1 -0.0923,0.0939 h -0.60536 a 0.09313333,0.09313333 0 0 1 -0.0923,-0.0939 v -2.72706 h -0.75301 a 0.08942917,0.08942917 0 0 1 -0.0926,-0.0892 v -0.48286 c 0,-0.0513 0.0415,-0.0889 0.0926,-0.0889 h 2.29182 c 0.0508,0 0.0968,0.0376 0.0968,0.0889 v 0.48286 c 0,0.0516 -0.046,0.0892 -0.0968,0.0892 z m 1.64916,2.86306 c -0.76227,0 -1.3679,-0.41698 -1.3679,-1.50416 v -0.55774 c 0,-1.08743 0.60563,-1.50415 1.3679,-1.50415 0.76253,0 1.36763,0.41672 1.36763,1.50415 v 0.55774 c 0,1.08744 -0.6051,1.50416 -1.36789,1.50416 z m 0.57282,-2.0619 c 0,-0.56224 -0.18468,-0.80142 -0.57282,-0.80142 -0.38789,0 -0.56833,0.23918 -0.56833,0.80142 v 0.55774 c 0,0.56224 0.18044,0.80116 0.56833,0.80116 0.38814,0 0.57282,-0.23892 0.57282,-0.80116 z m 3.35439,-0.80115 h -0.7485 v 2.72705 a 0.09313333,0.09313333 0 0 1 -0.0923,0.0939 h -0.60511 a 0.09313333,0.09313333 0 0 1 -0.0921,-0.0939 v -2.72706 h -0.75328 a 0.08969375,0.08969375 0 0 1 -0.0926,-0.0892 v -0.48286 c 0,-0.0513 0.0418,-0.0889 0.0926,-0.0889 h 2.29157 c 0.0508,0 0.0971,0.0376 0.0971,0.0889 v 0.48287 c 0,0.0516 -0.0463,0.0892 -0.0971,0.0892 z m 3.24855,-0.56277 -0.6887,2.90512 c -0.10637,0.45032 -0.44371,0.52043 -0.76253,0.52043 -0.31883,0 -0.66067,-0.0701 -0.76729,-0.52043 l -0.68846,-2.90512 c 0,-0.01 -0.004,-0.014 -0.004,-0.0236 0,-0.0423 0.037,-0.0749 0.0831,-0.0749 h 0.64267 c 0.046,0 0.0828,0.0373 0.0921,0.0844 l 0.57759,2.70404 c 0.009,0.0513 0.023,0.0701 0.0648,0.0701 0.0415,0 0.0556,-0.0185 0.0648,-0.0701 l 0.57759,-2.70404 c 0.009,-0.0471 0.0415,-0.0847 0.0876,-0.0847 h 0.64691 c 0.046,0 0.0786,0.0283 0.0786,0.0751 0,0.005 -0.005,0.014 -0.005,0.0236 z m 1.30281,3.42555 c -0.36512,0 -0.63764,-0.0423 -0.87312,-0.10318 -0.0463,-0.0138 -0.0926,-0.0423 -0.0926,-0.0937 v -0.45932 c 0,-0.0653 0.037,-0.0889 0.0831,-0.0889 h 0.014 c 0.18918,0.0188 0.69771,0.0561 0.87762,0.0561 0.31909,0 0.41117,-0.10319 0.41117,-0.32808 0,-0.13573 -0.0648,-0.21061 -0.30454,-0.35587 l -0.63765,-0.38417 c -0.42995,-0.25797 -0.54504,-0.55298 -0.54504,-0.89535 0,-0.51541 0.28575,-0.91361 1.18269,-0.91361 0.33708,0 0.80354,0.0561 0.97922,0.10319 0.0368,0.009 0.0693,0.0325 0.0693,0.0841 v 0.47334 c 0,0.0423 -0.0185,0.0796 -0.0786,0.0796 h -0.009 c -0.12965,-0.009 -0.66569,-0.0516 -0.97975,-0.0516 -0.26326,0 -0.36036,0.0796 -0.36036,0.24818 0,0.1315 0.0601,0.19235 0.30956,0.32808 l 0.59108,0.32359 c 0.48075,0.26247 0.62415,0.5715 0.62415,0.95117 0,0.49689 -0.32332,1.02659 -1.26127,1.02659 z m -16.97991,-4.94161 c 1.72932,0 3.13055,1.4216 3.13055,3.17499 0,1.7534 -1.40123,3.175 -3.13055,3.175 -1.72878,0 -3.13028,-1.4216 -3.13028,-3.175 0,-1.75339 1.4015,-3.17499 3.13028,-3.17499 z m 2.11032,4.3508 c 0.15452,-0.1442 0.15505,-2.33944 0,-2.56381 -0.19949,-0.17277 -2.80934,-0.84217 -3.00831,-0.77179 -0.0714,0.0669 -0.1098,0.57229 -0.11562,1.11839 -0.54928,-0.13123 -1.02288,-0.22357 -1.10332,-0.19526 -0.15451,0.14473 -0.15451,2.34024 0,2.56381 0.19897,0.17278 2.80935,0.84244 3.00858,0.77179 0.0714,-0.0667 0.1098,-0.57203 0.11536,-1.11813 0.54901,0.13124 1.02261,0.22358 1.10331,0.195 z m -1.2184,-1.64041 c 0.0833,0.12038 0.1217,0.81041 0.11535,1.44541 -0.81094,-0.1942 -1.78699,-0.47387 -1.90579,-0.57679 -0.0828,-0.12038 -0.12091,-0.81042 -0.11483,-1.44542 0.81095,0.19421 1.78647,0.47361 1.90527,0.5768 z\"></svg>',\r\n}"
+            },
+            {
+                "name": "VenusIconStyle",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/venus/src/lib/components/venus-icon/venus-icon.styles.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "css({\r\n  variants: {\r\n    fill: {\r\n      dark: {\r\n        fill: '$secondaryMid',\r\n      },\r\n      light: {\r\n        fill: '$white',\r\n      },\r\n      primary: {\r\n        fill: '$primaryLow',\r\n      },\r\n    },\r\n    size: {\r\n      small: {\r\n        width: '24px',\r\n        height: '24px',\r\n      },\r\n      large: {\r\n        width: '40px',\r\n        height: '40px',\r\n      },\r\n    },\r\n  },\r\n})"
             },
             {
                 "name": "VenusInputStyle",
@@ -760,48 +1157,69 @@
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
-            "src/app/components/input/Input.stories.ts": [
+            "src/stories/Input.stories.ts": [
                 {
                     "name": "Base",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/input/Input.stories.ts",
+                    "file": "src/stories/Input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "StoryObj<VenusInputComponent>",
-                    "defaultValue": "{\r\n  args: {\r\n    name: 'generic_name',\r\n    placeholder: 'Placeholder',\r\n  },\r\n}"
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
                 },
                 {
-                    "name": "Disabled",
+                    "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/input/Input.stories.ts",
+                    "file": "src/stories/Input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "StoryObj<VenusInputComponent>",
-                    "defaultValue": "{\r\n  args: {\r\n    name: 'generic_name',\r\n    placeholder: 'Placeholder',\r\n    isDisabled: true,\r\n  },\r\n}"
+                    "type": "Story<VenusInputComponent>",
+                    "defaultValue": "(args: VenusInputComponent) => ({\r\n  props: args,\r\n})"
                 }
             ],
-            "src/app/docs/colors.ts": [
+            "projects/venus/src/lib/components/venus-input/Input.stories.ts": [
                 {
-                    "name": "colors",
+                    "name": "Base",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/docs/colors.ts",
+                    "file": "projects/venus/src/lib/components/venus-input/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/venus/src/lib/components/venus-input/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<VenusInputComponent>",
+                    "defaultValue": "(args: VenusInputComponent) => ({\r\n  props: args,\r\n})"
+                }
+            ],
+            "projects/venus/src/lib/stitches.config.ts": [
+                {
+                    "name": "defaultTheme",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/venus/src/lib/stitches.config.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
-                    "defaultValue": "{\r\n  '$primary-low': '#0ADBE3',\r\n  '$primary-light': '#37B6C4',\r\n  '$primary-mid': '#039BE5',\r\n  '$primary-dark': '#037F9C',\r\n  '$secondary-low': '#D5CCC3',\r\n  '$secondary-light': '#8A817B',\r\n  '$secondary-mid': '#707070',\r\n  '$secondary-dark': '#484440',\r\n  '$background-low': '#F8F9FA',\r\n  '$background-mid': '#F1F1F1',\r\n  $warning: '#FEAC0E',\r\n  '$warning-hover': ' #ED9C2E',\r\n  '$gray-low': ' #EEEEEE',\r\n  '$gray-dark': ' #363636',\r\n  $danger: '#D93025',\r\n  '$danger-hover': ' #952C0C',\r\n  $blue: '#0897E9',\r\n  $success: '#1E8E3E',\r\n  '$success-hover': ' #1D7030',\r\n  $purple: '#6B48FF',\r\n  $black: '#000000',\r\n  $white: '#FFFFFF',\r\n}"
+                    "defaultValue": "{\r\n  colors: {\r\n    background: '#FBFBFB',\r\n    primaryLow: '#67F5FF',\r\n    primaryMid: '#37B6C4',\r\n    primaryDark: '#037F9C',\r\n    secondaryLow: '#E1E1E6',\r\n    secondaryLight: '#D9D9D9',\r\n    secondaryRegular: '#707070',\r\n    secondaryMid: '#4E4A45',\r\n    secondaryDark: '#484440',\r\n    success: '#00B37E',\r\n    successHover: '#00875F',\r\n    danger: '#D94352',\r\n    dangerHover: '#F76C82',\r\n    warning: '#F5B946',\r\n    warningHover: '#FCD277',\r\n    blue: '#4863F7',\r\n    blueHover: '#3249CB',\r\n    purple: '#8257E5',\r\n    purpleHover: '#633BBC',\r\n    black: '#000000',\r\n    white: '#FFFFFF',\r\n    gray: '#EFEFF2',\r\n  },\r\n\r\n  fontSizes: {\r\n    xs: '0.75rem',\r\n    sm: '0.875rem',\r\n    md: '1rem',\r\n    lg: '1.125rem',\r\n    xl: '1.5rem',\r\n    xxl: '2rem',\r\n    xxxl: '3rem',\r\n  },\r\n\r\n  fontWeights: {\r\n    regular: '400',\r\n    medium: '500',\r\n    bold: '700',\r\n  },\r\n\r\n  radii: {\r\n    sm: '5px',\r\n    md: '8px',\r\n    lg: '12px',\r\n    xl: '20px',\r\n  },\r\n}"
                 },
                 {
-                    "name": "lightColors",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/docs/colors.ts",
+                    "file": "projects/venus/src/lib/stitches.config.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "[]",
-                    "defaultValue": "[\r\n  '$secondary-low',\r\n  '$background-low',\r\n  '$background-mid',\r\n  '$gray-low',\r\n  '$white',\r\n  '$warning',\r\n  '$warning-hover',\r\n]"
+                    "type": "",
+                    "defaultValue": "createStitches({\r\n  theme: defaultTheme,\r\n})"
                 }
             ],
             "src/app/app.styles.ts": [
@@ -825,32 +1243,20 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "globalCss({\r\n  '@font-face': {\r\n    fontFamily: 'OpenSans',\r\n    src: \"url('/assets/OpenSans-Regular.ttf')\",\r\n  },\r\n  '@import':\r\n    \"url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap')\",\r\n  '*': {\r\n    margin: 0,\r\n    padding: 0,\r\n    boxSizing: 'border-box',\r\n    fontFamily: \"'Open Sans', sans-serif\",\r\n  },\r\n  a: { display: 'inline-block', textDecoration: 'none' },\r\n  ul: { listStyle: 'none' },\r\n  ol: { listStyle: 'none' },\r\n  img: { maxWidth: '100%', display: 'inline-block' },\r\n  h1: { fontSize: '3rem' },\r\n  h2: { fontSize: '2rem' },\r\n  h3: { fontSize: '1.5rem' },\r\n  p: { fontSize: '1rem' },\r\n  table: { borderCollapse: 'collapse', borderSpacing: 0 },\r\n})"
-                }
-            ],
-            "src/styles.ts": [
-                {
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/styles.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "createStitches({\r\n  theme: {\r\n    colors: {\r\n      text: 'black',\r\n      primary: 'blue',\r\n      onPrimary: 'white',\r\n    },\r\n    fontSizes: {\r\n      1: '0.875rem',\r\n      2: '1rem',\r\n      3: '1.125rem',\r\n      4: '1.5rem',\r\n      5: '2rem',\r\n    },\r\n    space: {\r\n      1: '0.25rem',\r\n      2: '0.5rem',\r\n      3: '0.75rem',\r\n      4: '1rem',\r\n      5: '2rem',\r\n    },\r\n  },\r\n})"
-                }
-            ],
-            "projects/venus/src/lib/styles.ts": [
-                {
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/venus/src/lib/styles.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "createStitches({\r\n  theme: {\r\n    colors: {\r\n      background: '#FBFBFB',\r\n      primaryLow: '#67F5FF',\r\n      primaryMid: '#37B6C4',\r\n      primaryDark: '#037F9C',\r\n      secondaryLow: '#E1E1E6',\r\n      secondaryLight: '#D9D9D9',\r\n      secondaryRegular: '#707070',\r\n      secondaryMid: '#4E4A45',\r\n      secondaryDark: '#484440',\r\n      success: '#00B37E',\r\n      successHover: '#00875F',\r\n      danger: '#D94352',\r\n      dangerHover: '#F76C82',\r\n      warning: '#F5B946',\r\n      warningHover: '#FCD277',\r\n      blue: '#4863F7',\r\n      blueHover: '#3249CB',\r\n      purple: '#8257E5',\r\n      purpleHover: '#633BBC',\r\n      black: '#000000',\r\n      white: '#FFFFFF',\r\n      gray: '#EFEFF2',\r\n    },\r\n\r\n    fontSizes: {\r\n      xs: '0.75rem',\r\n      sm: '0.875rem',\r\n      md: '1rem',\r\n      lg: '1.125rem',\r\n      xl: '1.5rem',\r\n      xxl: '2rem',\r\n      xxxl: '3rem',\r\n    },\r\n\r\n    fontWeights: {\r\n      regular: '400',\r\n      medium: '500',\r\n      bold: '700',\r\n    },\r\n\r\n    radii: {\r\n      sm: '5px',\r\n      md: '8px',\r\n      lg: '12px',\r\n      xl: '20px',\r\n    },\r\n  },\r\n})"
+                    "defaultValue": "globalCss({\r\n  '@font-face': {\r\n    fontFamily: 'OpenSans',\r\n    src: \"url('/assets/OpenSans-Regular.ttf')\",\r\n  },\r\n  '@import':\r\n    \"url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap')\",\r\n  '*': {\r\n    margin: 0,\r\n    padding: 0,\r\n    boxSizing: 'border-box',\r\n    fontFamily: \"'Open Sans', sans-serif\",\r\n  },\r\n  a: { display: 'inline-block', textDecoration: 'none' },\r\n  ul: { listStyle: 'none' },\r\n  ol: { listStyle: 'none' },\r\n  img: { maxWidth: '100%', display: 'inline-block' },\r\n  h1: { fontSize: '2rem' },\r\n  h2: { fontSize: '1.5rem' },\r\n  h3: { fontSize: '1.25rem' },\r\n  p: { fontSize: '1rem' },\r\n  table: { borderCollapse: 'collapse', borderSpacing: 0 },\r\n})"
                 }
             ],
             "projects/venus/src/lib/components/venus-breadcrumb/venus-breadcrumb.styles.ts": [
+                {
+                    "name": "VenusBreadcrumbItem",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/venus/src/lib/components/venus-breadcrumb/venus-breadcrumb.styles.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "css({\r\n  color: '$secondaryRegular',\r\n  '&:hover': {\r\n    color: '$secondaryMid',\r\n  },\r\n  cursor: 'pointer',\r\n})"
+                },
                 {
                     "name": "VenusBreadcrumbList",
                     "ctype": "miscellaneous",
@@ -869,7 +1275,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "css({\r\n  color: '$secondaryMid',\r\n  backgroundColor: '$white',\r\n  border: 'none',\r\n  outline: 'none',\r\n  padding: '20px',\r\n  height: '60xp',\r\n  boxShadow: '0px 2px 4px #D9D9D9',\r\n})"
+                    "defaultValue": "css({\r\n  fontWeight: '$bold',\r\n  padding: '20px',\r\n  height: '60px',\r\n  border: 'none',\r\n  outline: 'none',\r\n  backgroundColor: '$white',\r\n  boxShadow: '0px 2px 4px #D9D9D9',\r\n})"
                 }
             ],
             "projects/venus/src/lib/components/venus-button/venus-button.styles.ts": [
@@ -881,30 +1287,34 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "css({\r\n  height: '40px',\r\n  padding: '0 1.5rem',\r\n  color: '$white',\r\n  textTransform: 'uppercase',\r\n  fontSize: '$sm',\r\n  fontWeight: '$bold',\r\n  backgroundColor: '$primaryMid',\r\n  border: 'none',\r\n  borderRadius: '$sm',\r\n  cursor: 'pointer',\r\n  transition: '.3s',\r\n\r\n  variants: {\r\n    bg: {\r\n      primary: {\r\n        backgroundColor: '$primaryMid',\r\n        '&:hover': {\r\n          backgroundColor: '$primaryDark',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(41, 182, 197, .5)',\r\n          color: 'rgba(255, 255, 255, .5)',\r\n        },\r\n      },\r\n      secondary: {\r\n        backgroundColor: '$secondaryLow',\r\n        color: '$secondaryRegular',\r\n        '&:hover': {\r\n          backgroundColor: '$secondaryRegular',\r\n          color: '$secondaryLow',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: '$gray',\r\n          color: 'rgba(112, 112, 112, .5)',\r\n        },\r\n      },\r\n      danger: {\r\n        backgroundColor: '$danger',\r\n        '&:hover': {\r\n          backgroundColor: '$dangerHover',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(217, 67, 82, .5)',\r\n          color: 'rgba(255, 255, 255, .5)',\r\n        },\r\n      },\r\n      success: {\r\n        backgroundColor: '$success',\r\n        '&:hover': {\r\n          backgroundColor: '$successHover',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(0, 179, 126, .5)',\r\n          color: 'rgba(255, 255, 255, .5)',\r\n        },\r\n      },\r\n      warning: {\r\n        backgroundColor: '$warning',\r\n        color: '$secondaryMid',\r\n        '&:hover': {\r\n          backgroundColor: '$warningHover',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(245, 185, 70, .5)',\r\n          color: 'rgba(78, 74, 69, .5)',\r\n        },\r\n      },\r\n    },\r\n    size: {\r\n      full: {\r\n        width: '100%',\r\n      },\r\n    },\r\n  },\r\n})"
+                    "defaultValue": "css({\r\n  color: '$white',\r\n  textTransform: 'uppercase',\r\n  fontWeight: '$bold',\r\n  backgroundColor: '$primaryMid',\r\n  border: 'none',\r\n  borderRadius: '$sm',\r\n  cursor: 'pointer',\r\n  transition: '.3s',\r\n  display: 'flex',\r\n  alignItems: 'center',\r\n  justifyContent: 'center',\r\n  gap: '5px',\r\n\r\n  variants: {\r\n    bg: {\r\n      primary: {\r\n        backgroundColor: '$primaryMid',\r\n        '&:hover': {\r\n          backgroundColor: '$primaryDark',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(41, 182, 197, .5)',\r\n          color: 'rgba(255, 255, 255, .5)',\r\n        },\r\n      },\r\n      secondary: {\r\n        backgroundColor: '$secondaryLow',\r\n        color: '$secondaryRegular',\r\n        '&:hover': {\r\n          backgroundColor: '$secondaryRegular',\r\n          color: '$secondaryLow',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: '$gray',\r\n          color: 'rgba(112, 112, 112, .5)',\r\n        },\r\n      },\r\n      danger: {\r\n        backgroundColor: '$danger',\r\n        '&:hover': {\r\n          backgroundColor: '$dangerHover',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(217, 67, 82, .5)',\r\n          color: 'rgba(255, 255, 255, .5)',\r\n        },\r\n      },\r\n      success: {\r\n        backgroundColor: '$success',\r\n        '&:hover': {\r\n          backgroundColor: '$successHover',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(0, 179, 126, .5)',\r\n          color: 'rgba(255, 255, 255, .5)',\r\n        },\r\n      },\r\n      warning: {\r\n        backgroundColor: '$warning',\r\n        color: '$secondaryMid',\r\n        '&:hover': {\r\n          backgroundColor: '$warningHover',\r\n        },\r\n        '&:disabled': {\r\n          cursor: 'not-allowed',\r\n          backgroundColor: 'rgba(245, 185, 70, .5)',\r\n          color: 'rgba(78, 74, 69, .5)',\r\n        },\r\n      },\r\n    },\r\n    size: {\r\n      md: {\r\n        height: '40px',\r\n        fontSize: '$sm',\r\n        padding: '0 1rem',\r\n      },\r\n      lg: {\r\n        height: '50px',\r\n        fontSize: '$md',\r\n        padding: '0 1.5rem',\r\n      },\r\n      sm: {\r\n        height: '30px',\r\n        fontSize: '$xs',\r\n        padding: '0 .8rem',\r\n      },\r\n    },\r\n    width: {\r\n      full: {\r\n        width: '100%',\r\n      },\r\n    },\r\n  },\r\n})"
+                }
+            ],
+            "projects/venus/src/lib/components/venus-card/venus-card-content/venus-card-content.styles.ts": [
+                {
+                    "name": "VenusCardContentStyle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/venus/src/lib/components/venus-card/venus-card-content/venus-card-content.styles.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "css({\r\n  padding: '24px 18px',\r\n  fontWeight: '$medium',\r\n  fontSize: '$md',\r\n})"
+                }
+            ],
+            "projects/venus/src/lib/components/venus-card/venus-card-header/venus-card-header.styles.ts": [
+                {
+                    "name": "VenusCardHeaderStyle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/venus/src/lib/components/venus-card/venus-card-header/venus-card-header.styles.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "css({\r\n  fontWeight: '$bold',\r\n  padding: '18px',\r\n  borderBottom: '1px solid $secondaryRegular',\r\n})"
                 }
             ],
             "projects/venus/src/lib/components/venus-card/venus-card.styles.ts": [
-                {
-                    "name": "VenusCardHeader",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/venus/src/lib/components/venus-card/venus-card.styles.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "css({\r\n  fontWeight: '$bold',\r\n  padding: '18px',\r\n  fontSize: '$lg',\r\n  borderBottom: '1px solid $secondaryRegular',\r\n})"
-                },
-                {
-                    "name": "VenusCardSection",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/venus/src/lib/components/venus-card/venus-card.styles.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "css({\r\n  padding: '24px 18px',\r\n  fontWeight: '$bold',\r\n  fontSize: '$md',\r\n})"
-                },
                 {
                     "name": "VenusCardStyle",
                     "ctype": "miscellaneous",
@@ -913,7 +1323,31 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "css({\r\n  color: '$secondaryMid',\r\n  backgroundColor: '$gray',\r\n  border: 'none',\r\n  borderRadius: '$lg',\r\n  outline: 'none',\r\n  width: '475px',\r\n  variants: {\r\n    size: {\r\n      full: {\r\n        width: '100%',\r\n      },\r\n    },\r\n  },\r\n})"
+                    "defaultValue": "css({\r\n  color: '$secondaryMid',\r\n  backgroundColor: '$gray',\r\n  border: 'none',\r\n  outline: 'none',\r\n  width: '475px',\r\n  variants: {\r\n    size: {\r\n      full: {\r\n        width: '100%',\r\n      },\r\n    },\r\n    radii: {\r\n      sm: {\r\n        borderRadius: '$sm',\r\n      },\r\n      md: {\r\n        borderRadius: '$md',\r\n      },\r\n      lg: {\r\n        borderRadius: '$lg',\r\n      },\r\n    },\r\n  },\r\n})"
+                }
+            ],
+            "projects/venus/src/lib/components/venus-icon/venus-icons.ts": [
+                {
+                    "name": "VenusIcons",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/venus/src/lib/components/venus-icon/venus-icons.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "defaultValue": "{\r\n  home: '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"M11 39h7.5V26.5h11V39H37V19.5L24 9.75 11 19.5Zm-3 3V18L24 6l16 12v24H26.5V29.5h-5V42Zm16-17.65Z\"/></svg>',\r\n  tools:\r\n    '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"M38.4 42 25.85 29.45l2.85-2.85 12.55 12.55ZM9.35 42 6.5 39.15 21 24.65l-5.35-5.35-1.15 1.15-2.2-2.2v4.25l-1.2 1.2L5 17.6l1.2-1.2h4.3L8.1 14l6.55-6.55q.85-.85 1.85-1.15 1-.3 2.2-.3 1.2 0 2.2.425 1 .425 1.85 1.275l-5.35 5.35 2.4 2.4-1.2 1.2 5.2 5.2 6.1-6.1q-.4-.65-.625-1.5-.225-.85-.225-1.8 0-2.65 1.925-4.575Q32.9 5.95 35.55 5.95q.75 0 1.275.15.525.15.875.4l-4.25 4.25 3.75 3.75 4.25-4.25q.25.4.425.975t.175 1.325q0 2.65-1.925 4.575Q38.2 19.05 35.55 19.05q-.9 0-1.55-.125t-1.2-.375Z\"/></svg>',\r\n  info: '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"M22.65 34h3V22h-3ZM24 18.3q.7 0 1.175-.45.475-.45.475-1.15t-.475-1.2Q24.7 15 24 15q-.7 0-1.175.5-.475.5-.475 1.2t.475 1.15q.475.45 1.175.45ZM24 44q-4.1 0-7.75-1.575-3.65-1.575-6.375-4.3-2.725-2.725-4.3-6.375Q4 28.1 4 23.95q0-4.1 1.575-7.75 1.575-3.65 4.3-6.35 2.725-2.7 6.375-4.275Q19.9 4 24.05 4q4.1 0 7.75 1.575 3.65 1.575 6.35 4.275 2.7 2.7 4.275 6.35Q44 19.85 44 24q0 4.1-1.575 7.75-1.575 3.65-4.275 6.375t-6.35 4.3Q28.15 44 24 44Zm.05-3q7.05 0 12-4.975T41 23.95q0-7.05-4.95-12T24 7q-7.05 0-12.025 4.95Q7 16.9 7 24q0 7.05 4.975 12.025Q16.95 41 24.05 41ZM24 24Z\"/></svg>',\r\n  clock:\r\n    '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"m31.35 33.65 2.25-2.25-7.95-8V13.35h-3V24.6ZM24 44q-4.1 0-7.75-1.575-3.65-1.575-6.375-4.3-2.725-2.725-4.3-6.375Q4 28.1 4 24t1.575-7.75q1.575-3.65 4.3-6.375 2.725-2.725 6.375-4.3Q19.9 4 24 4t7.75 1.575q3.65 1.575 6.375 4.3 2.725 2.725 4.3 6.375Q44 19.9 44 24t-1.575 7.75q-1.575 3.65-4.3 6.375-2.725 2.725-6.375 4.3Q28.1 44 24 44Zm0-20Zm0 17q7 0 12-5t5-12q0-7-5-12T24 7q-7 0-12 5T7 24q0 7 5 12t12 5Z\"/></svg>',\r\n  menu: '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z\"/></svg>',\r\n  expand_more:\r\n    '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"m24 30.75-12-12 2.15-2.15L24 26.5l9.85-9.85L36 18.8Z\"/></svg>',\r\n  navigate_next:\r\n    '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"m18.75 36-2.15-2.15 9.9-9.9-9.9-9.9 2.15-2.15L30.8 23.95Z\"/></svg>',\r\n  totvs:\r\n    '<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><path d=\"m 138.39199,163.61216 h -0.74877 v 2.72706 a 0.09339792,0.09339792 0 0 1 -0.0923,0.0939 h -0.60536 a 0.09313333,0.09313333 0 0 1 -0.0923,-0.0939 v -2.72706 h -0.75301 a 0.08942917,0.08942917 0 0 1 -0.0926,-0.0892 v -0.48286 c 0,-0.0513 0.0415,-0.0889 0.0926,-0.0889 h 2.29182 c 0.0508,0 0.0968,0.0376 0.0968,0.0889 v 0.48286 c 0,0.0516 -0.046,0.0892 -0.0968,0.0892 z m 1.64916,2.86306 c -0.76227,0 -1.3679,-0.41698 -1.3679,-1.50416 v -0.55774 c 0,-1.08743 0.60563,-1.50415 1.3679,-1.50415 0.76253,0 1.36763,0.41672 1.36763,1.50415 v 0.55774 c 0,1.08744 -0.6051,1.50416 -1.36789,1.50416 z m 0.57282,-2.0619 c 0,-0.56224 -0.18468,-0.80142 -0.57282,-0.80142 -0.38789,0 -0.56833,0.23918 -0.56833,0.80142 v 0.55774 c 0,0.56224 0.18044,0.80116 0.56833,0.80116 0.38814,0 0.57282,-0.23892 0.57282,-0.80116 z m 3.35439,-0.80115 h -0.7485 v 2.72705 a 0.09313333,0.09313333 0 0 1 -0.0923,0.0939 h -0.60511 a 0.09313333,0.09313333 0 0 1 -0.0921,-0.0939 v -2.72706 h -0.75328 a 0.08969375,0.08969375 0 0 1 -0.0926,-0.0892 v -0.48286 c 0,-0.0513 0.0418,-0.0889 0.0926,-0.0889 h 2.29157 c 0.0508,0 0.0971,0.0376 0.0971,0.0889 v 0.48287 c 0,0.0516 -0.0463,0.0892 -0.0971,0.0892 z m 3.24855,-0.56277 -0.6887,2.90512 c -0.10637,0.45032 -0.44371,0.52043 -0.76253,0.52043 -0.31883,0 -0.66067,-0.0701 -0.76729,-0.52043 l -0.68846,-2.90512 c 0,-0.01 -0.004,-0.014 -0.004,-0.0236 0,-0.0423 0.037,-0.0749 0.0831,-0.0749 h 0.64267 c 0.046,0 0.0828,0.0373 0.0921,0.0844 l 0.57759,2.70404 c 0.009,0.0513 0.023,0.0701 0.0648,0.0701 0.0415,0 0.0556,-0.0185 0.0648,-0.0701 l 0.57759,-2.70404 c 0.009,-0.0471 0.0415,-0.0847 0.0876,-0.0847 h 0.64691 c 0.046,0 0.0786,0.0283 0.0786,0.0751 0,0.005 -0.005,0.014 -0.005,0.0236 z m 1.30281,3.42555 c -0.36512,0 -0.63764,-0.0423 -0.87312,-0.10318 -0.0463,-0.0138 -0.0926,-0.0423 -0.0926,-0.0937 v -0.45932 c 0,-0.0653 0.037,-0.0889 0.0831,-0.0889 h 0.014 c 0.18918,0.0188 0.69771,0.0561 0.87762,0.0561 0.31909,0 0.41117,-0.10319 0.41117,-0.32808 0,-0.13573 -0.0648,-0.21061 -0.30454,-0.35587 l -0.63765,-0.38417 c -0.42995,-0.25797 -0.54504,-0.55298 -0.54504,-0.89535 0,-0.51541 0.28575,-0.91361 1.18269,-0.91361 0.33708,0 0.80354,0.0561 0.97922,0.10319 0.0368,0.009 0.0693,0.0325 0.0693,0.0841 v 0.47334 c 0,0.0423 -0.0185,0.0796 -0.0786,0.0796 h -0.009 c -0.12965,-0.009 -0.66569,-0.0516 -0.97975,-0.0516 -0.26326,0 -0.36036,0.0796 -0.36036,0.24818 0,0.1315 0.0601,0.19235 0.30956,0.32808 l 0.59108,0.32359 c 0.48075,0.26247 0.62415,0.5715 0.62415,0.95117 0,0.49689 -0.32332,1.02659 -1.26127,1.02659 z m -16.97991,-4.94161 c 1.72932,0 3.13055,1.4216 3.13055,3.17499 0,1.7534 -1.40123,3.175 -3.13055,3.175 -1.72878,0 -3.13028,-1.4216 -3.13028,-3.175 0,-1.75339 1.4015,-3.17499 3.13028,-3.17499 z m 2.11032,4.3508 c 0.15452,-0.1442 0.15505,-2.33944 0,-2.56381 -0.19949,-0.17277 -2.80934,-0.84217 -3.00831,-0.77179 -0.0714,0.0669 -0.1098,0.57229 -0.11562,1.11839 -0.54928,-0.13123 -1.02288,-0.22357 -1.10332,-0.19526 -0.15451,0.14473 -0.15451,2.34024 0,2.56381 0.19897,0.17278 2.80935,0.84244 3.00858,0.77179 0.0714,-0.0667 0.1098,-0.57203 0.11536,-1.11813 0.54901,0.13124 1.02261,0.22358 1.10331,0.195 z m -1.2184,-1.64041 c 0.0833,0.12038 0.1217,0.81041 0.11535,1.44541 -0.81094,-0.1942 -1.78699,-0.47387 -1.90579,-0.57679 -0.0828,-0.12038 -0.12091,-0.81042 -0.11483,-1.44542 0.81095,0.19421 1.78647,0.47361 1.90527,0.5768 z\"></svg>',\r\n}"
+                }
+            ],
+            "projects/venus/src/lib/components/venus-icon/venus-icon.styles.ts": [
+                {
+                    "name": "VenusIconStyle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/venus/src/lib/components/venus-icon/venus-icon.styles.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "css({\r\n  variants: {\r\n    fill: {\r\n      dark: {\r\n        fill: '$secondaryMid',\r\n      },\r\n      light: {\r\n        fill: '$white',\r\n      },\r\n      primary: {\r\n        fill: '$primaryLow',\r\n      },\r\n    },\r\n    size: {\r\n      small: {\r\n        width: '24px',\r\n        height: '24px',\r\n      },\r\n      large: {\r\n        width: '40px',\r\n        height: '40px',\r\n      },\r\n    },\r\n  },\r\n})"
                 }
             ],
             "projects/venus/src/lib/components/venus-input/venus-input.styles.ts": [
@@ -963,16 +1397,17 @@
                 "linktype": "component",
                 "name": "VenusBreadcrumbComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
-                "filePath": "projects/venus/src/lib/components/venus-breadcrumb/venus-breadcrumb.component.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "paths",
+                "filePath": "projects/venus/src/lib/components/venus-breadcrumb/venus-breadcrumb.styles.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "VenusBreadcrumbItem",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -1001,7 +1436,7 @@
                 "linktype": "component",
                 "name": "VenusButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -1015,32 +1450,50 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/venus/src/lib/components/venus-card/venus-card-content/venus-card-content.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "VenusCardContentComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/venus/src/lib/components/venus-card/venus-card-content/venus-card-content.styles.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "VenusCardContentStyle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/venus/src/lib/components/venus-card/venus-card-header/venus-card-header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "VenusCardHeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/venus/src/lib/components/venus-card/venus-card-header/venus-card-header.styles.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "VenusCardHeaderStyle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/venus/src/lib/components/venus-card/venus-card.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "VenusCardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/venus/src/lib/components/venus-card/venus-card.styles.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "VenusCardHeader",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/venus/src/lib/components/venus-card/venus-card.styles.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "VenusCardSection",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -1049,6 +1502,55 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "VenusCardStyle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/venus/src/lib/components/venus-icon/venus-icon.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "VenusIconsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/venus/src/lib/components/venus-icon/venus-icon.styles.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "VenusIconStyle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/venus/src/lib/components/venus-icon/venus-icons.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "VenusIcons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/venus/src/lib/components/venus-input/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Base",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/venus/src/lib/components/venus-input/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1073,12 +1575,31 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/venus/src/lib/styles.ts",
+                "filePath": "projects/venus/src/lib/stitches.config.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultTheme",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/venus/src/lib/stitches.config.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/venus/src/lib/types/tokens.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "VenusTokens",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -1101,7 +1622,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/input/Input.stories.ts",
+                "filePath": "src/stories/Input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1111,40 +1632,11 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/input/Input.stories.ts",
+                "filePath": "src/stories/Input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Disabled",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/docs/colors.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "colors",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/docs/colors.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "lightColors",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/styles.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

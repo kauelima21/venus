@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { VenusInputStyle } from './venus-input.styles';
 
 @Component({
@@ -15,14 +15,18 @@ import { VenusInputStyle } from './venus-input.styles';
   `,
   styles: [],
 })
-export class VenusInputComponent implements OnInit {
+export class VenusInputComponent implements OnInit, OnChanges {
   @Input() type: 'text' | 'number' | 'password' = 'text';
   @Input() name: string = '';
   @Input() placeholder: string = '';
   @Input() isDisabled: boolean = false;
   style: string = '';
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.style = VenusInputStyle().className;
+  }
+
+  ngOnChanges(): void {
+    this.ngOnInit();
   }
 }

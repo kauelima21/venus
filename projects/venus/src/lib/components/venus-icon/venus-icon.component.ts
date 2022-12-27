@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   ElementRef,
   OnInit,
+  OnChanges,
   HostBinding,
 } from '@angular/core';
 import { VenusIcons } from './venus-icons';
@@ -15,7 +16,7 @@ import { VenusIconStyle } from './venus-icon.styles';
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VenusIconsComponent implements OnInit {
+export class VenusIconsComponent implements OnInit, OnChanges {
   constructor(private element: ElementRef) {}
 
   @Input() set name(iconName: string) {
@@ -31,6 +32,10 @@ export class VenusIconsComponent implements OnInit {
       fill: this.color,
       size: this.size,
     }).className;
+  }
+
+  ngOnChanges(): void {
+    this.ngOnInit();
   }
 
   @HostBinding('class') get IconClass() {

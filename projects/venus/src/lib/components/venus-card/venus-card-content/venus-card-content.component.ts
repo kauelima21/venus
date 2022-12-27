@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { VenusCardContentStyle } from './venus-card-content.styles';
 
 @Component({
@@ -10,10 +10,14 @@ import { VenusCardContentStyle } from './venus-card-content.styles';
   `,
   styles: [],
 })
-export class VenusCardContentComponent implements OnInit {
+export class VenusCardContentComponent implements OnInit, OnChanges {
   style: string = '';
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.style = VenusCardContentStyle().className;
+  }
+
+  ngOnChanges(): void {
+    this.ngOnInit();
   }
 }

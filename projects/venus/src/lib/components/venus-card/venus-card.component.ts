@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { VenusCardStyle } from './venus-card.styles';
 
 @Component({
@@ -10,7 +10,7 @@ import { VenusCardStyle } from './venus-card.styles';
   `,
   styles: [],
 })
-export class VenusCardComponent implements OnInit {
+export class VenusCardComponent implements OnInit, OnChanges {
   style: string = '';
 
   @Input() full: boolean = false;
@@ -25,5 +25,9 @@ export class VenusCardComponent implements OnInit {
       return;
     }
     this.style = VenusCardStyle({ radii: this.radius }).className;
+  }
+
+  ngOnChanges(): void {
+    this.ngOnInit();
   }
 }

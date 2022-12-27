@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { VenusCardHeaderStyle } from './venus-card-header.styles';
 
 @Component({
@@ -11,11 +11,15 @@ import { VenusCardHeaderStyle } from './venus-card-header.styles';
   `,
   styles: [],
 })
-export class VenusCardHeaderComponent implements OnInit {
+export class VenusCardHeaderComponent implements OnInit, OnChanges {
   @Input() title!: string;
   style: string = '';
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.style = VenusCardHeaderStyle().className;
+  }
+
+  ngOnChanges(): void {
+    this.ngOnInit();
   }
 }
