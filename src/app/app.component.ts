@@ -9,7 +9,7 @@ import { div } from './app.styles';
         <h3>Resultado</h3>
         <p>Faça uma busca usando algum solver e o resultado estara aqui.</p>
         <venus-button>
-          <venus-icon name="info" color="light" size="small"></venus-icon>
+          <venus-icon name="info" color="light" size="sm"></venus-icon>
           Info
         </venus-button>
         <venus-button size="lg" [full]="true" bg="success"
@@ -18,7 +18,9 @@ import { div } from './app.styles';
         <venus-button size="lg" bg="danger">Cancelar</venus-button>
         <venus-button size="sm" bg="warning">Comprar</venus-button>
         <venus-card radius="lg">
-          <venus-card-header title="Lorem ipsum"></venus-card-header>
+          <venus-card-header title="Lorem ipsum">
+            <venus-button size="sm" bg="warning">Comprar</venus-button>
+          </venus-card-header>
           <venus-card-content>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. At sunt
