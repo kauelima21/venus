@@ -15,12 +15,12 @@ export const VenusIconStyle = css({
     },
     size: {
       sm: {
-        width: '24px',
-        height: '24px',
+        width: '16px',
+        height: '16px',
       },
       md: {
-        width: '32px',
-        height: '32px',
+        width: '24px',
+        height: '24px',
       },
       lg: {
         width: '40px',

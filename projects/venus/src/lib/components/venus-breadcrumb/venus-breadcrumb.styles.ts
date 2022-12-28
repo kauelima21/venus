@@ -13,6 +13,7 @@ export const VenusBreadcrumbStyle = css({
 export const VenusBreadcrumbList = css({
   display: 'flex',
   gap: '20px',
+  listStyle: 'none',
 });
 
 export const VenusBreadcrumbItem = css({
@@ -21,4 +22,10 @@ export const VenusBreadcrumbItem = css({
     color: '$secondaryMid',
   },
   cursor: 'pointer',
+});
+
+export const VenusBreadcrumbIcon = css({
+  display: 'block',
+  width: '24px',
+  height: '24px',
 });

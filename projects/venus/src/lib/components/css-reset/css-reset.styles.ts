@@ -1,10 +1,6 @@
 import { globalCss } from '@stitches/core';
 
 export const GlobalStyles = globalCss({
-  '@font-face': {
-    fontFamily: 'OpenSans',
-    src: "url('/assets/OpenSans-Regular.ttf')",
-  },
   '@import':
     "url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap')",
   '*': {

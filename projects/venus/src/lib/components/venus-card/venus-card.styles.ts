@@ -5,11 +5,11 @@ export const VenusCardStyle = css({
   backgroundColor: '$gray',
   border: 'none',
   outline: 'none',
-  width: '475px',
+  maxWidth: '475px',
   variants: {
     size: {
       full: {
-        width: '100%',
+        maxWidth: '100%',
       },
     },
     radii: {
