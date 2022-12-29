@@ -22,6 +22,9 @@ export const VenusCardStyle = css({
       lg: {
         borderRadius: '$lg',
       },
+      xl: {
+        borderRadius: '$xl',
+      },
     },
   },
 });

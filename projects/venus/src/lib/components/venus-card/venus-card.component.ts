@@ -14,7 +14,7 @@ export class VenusCardComponent implements OnInit, OnChanges {
   style: string = '';
 
   @Input() full: boolean = false;
-  @Input() radius: 'sm' | 'md' | 'lg' = 'sm';
+  @Input() radius: 'sm' | 'md' | 'lg' | 'xl' = 'sm';
 
   ngOnInit(): void {
     if (this.full) {

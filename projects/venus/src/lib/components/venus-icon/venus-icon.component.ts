@@ -24,7 +24,7 @@ export class VenusIconsComponent implements OnInit, OnChanges {
   }
 
   @Input() color: 'dark' | 'light' | 'primary' = 'dark';
-  @Input() size: 'sm' | 'md' | 'lg' = 'md';
+  @Input() size?: 'sm' | 'md' | 'lg' | 'xl' = 'md';
   style: string = '';
 
   ngOnInit(): void {
