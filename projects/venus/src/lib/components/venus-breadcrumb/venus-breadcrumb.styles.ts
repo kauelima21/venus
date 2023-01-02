@@ -24,6 +24,11 @@ export const VenusBreadcrumbItem = css({
   cursor: 'pointer',
 });
 
+export const VenusBreadcrumbItemSelected = css({
+  color: '$secondaryMid',
+  cursor: 'default',
+});
+
 export const VenusBreadcrumbIcon = css({
   display: 'block',
   width: '24px',

@@ -5,7 +5,7 @@ export const VenusCardStyle = css({
   backgroundColor: '$gray',
   border: 'none',
   outline: 'none',
-  maxWidth: '475px',
+  maxWidth: 'max-content',
   variants: {
     size: {
       full: {

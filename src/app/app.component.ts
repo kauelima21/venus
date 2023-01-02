@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { div } from './app.styles';
+import { theme } from 'venus';
 
 @Component({
   selector: 'app-root',
@@ -50,5 +51,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.style = div().className;
+    let tokens = Object.entries(theme.colors).map(([key, value]) => value);
+    let colors = tokens.map(
+      (token) => `name: ${token.token} value: ${token.value}`
+    );
+    console.log(colors);
   }
 }

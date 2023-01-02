@@ -4,6 +4,7 @@ import {
   VenusBreadcrumbList,
   VenusBreadcrumbItem,
   VenusBreadcrumbIcon,
+  VenusBreadcrumbItemSelected,
 } from './venus-breadcrumb.styles';
 import { Router } from '@angular/router';
 import { VenusBreadcrumbItems } from './venus-breadcrumb-items';
@@ -14,14 +15,21 @@ import { VenusBreadcrumbItems } from './venus-breadcrumb-items';
     <div [ngClass]="[style]">
       <ul [ngClass]="[list]">
         <li *ngFor="let path of paths" style="display: 'flex';">
-          <a *ngIf="router.url === path.endpoint" [ngClass]="[item]">{{
-            path.name
-          }}</a>
+          <a
+            *ngIf="router.url === path.endpoint"
+            [ngClass]="[itemSelect]"
+            [routerLink]="path.endpoint"
+            >{{ path.name }}</a
+          >
           <ng-container *ngFor="let child of path.child">
             <ng-container *ngIf="router.url === child.endpoint">
-              <a [ngClass]="[item]">{{ path.name }}</a>
+              <a [ngClass]="[item]" [routerLink]="path.endpoint">{{
+                path.name
+              }}</a>
               <venus-icon name="navigate_next" [ngClass]="[icon]"></venus-icon>
-              <a [ngClass]="[item]">{{ child.name }}</a>
+              <a [ngClass]="[itemSelect]" [routerLink]="child.endpoint">{{
+                child.name
+              }}</a>
             </ng-container>
           </ng-container>
         </li>
@@ -35,6 +43,7 @@ export class VenusBreadcrumbComponent implements OnInit, OnChanges {
   style: string = '';
   list: string = '';
   item: string = '';
+  itemSelect: string = '';
   icon: string = '';
 
   @Input() paths: Array<VenusBreadcrumbItems> = [];
@@ -43,6 +52,7 @@ export class VenusBreadcrumbComponent implements OnInit, OnChanges {
     this.style = VenusBreadcrumbStyle().className;
     this.list = VenusBreadcrumbList().className;
     this.item = VenusBreadcrumbItem().className;
+    this.itemSelect = VenusBreadcrumbItemSelected().className;
     this.icon = VenusBreadcrumbIcon().className;
   }
 
