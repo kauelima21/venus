@@ -9,6 +9,7 @@ import { VenusBreadcrumbComponent } from './components/venus-breadcrumb/venus-br
 import { VenusCardComponent } from './components/venus-card/venus-card.component';
 import { VenusCardHeaderComponent } from './components/venus-card/venus-card-header/venus-card-header.component';
 import { VenusCardContentComponent } from './components/venus-card/venus-card-content/venus-card-content.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { VenusCardContentComponent } from './components/venus-card/venus-card-co
     VenusCardHeaderComponent,
     VenusCardContentComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   exports: [
     CssResetComponent,
     VenusButtonComponent,

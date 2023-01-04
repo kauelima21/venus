@@ -5,6 +5,7 @@ import { VenusInputStyle } from './venus-input.styles';
   selector: 'venus-input',
   template: `
     <input
+      [formControlName]="name"
       [placeholder]="placeholder"
       [disabled]="isDisabled"
       [ngClass]="style"
