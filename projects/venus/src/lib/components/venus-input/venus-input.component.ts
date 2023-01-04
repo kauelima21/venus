@@ -17,6 +17,7 @@ import { VenusInputStyle } from './venus-input.styles';
       [placeholder]="placeholder"
       [disabled]="isDisabled"
       [ngClass]="style"
+      [required]="isRequired"
       [name]="name"
       [type]="type"
       value=""
@@ -31,6 +32,7 @@ export class VenusInputComponent implements OnInit, OnChanges {
   @Output() modelChange: any = new EventEmitter();
   @Input() placeholder: string = '';
   @Input() isDisabled: boolean = false;
+  @Input() isRequired: boolean = false;
   style: string = '';
 
   ngOnInit(): void {

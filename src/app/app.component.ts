@@ -23,11 +23,12 @@ import { theme } from 'venus';
       <div style="display: grid; gap: 30px; padding: 60px;">
         <h3>Resultado</h3>
         <p>Faça uma busca usando algum solver e o resultado estara aqui.</p>
-        <form (ngSubmit)="send()">
+        <form (ngSubmit)="send()" ngNativeValidate>
           <venus-input
             placeholder="Placeholder"
             [(model)]="modelo"
             name="modelo"
+            [isRequired]="true"
           ></venus-input>
           <venus-button type="submit">
             <venus-icon name="info" color="light" size="sm"></venus-icon>
