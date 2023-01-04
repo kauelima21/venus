@@ -52,7 +52,7 @@ const defaultTheme = {
   },
 };
 
-export const { css, theme } = createStitches({
+export const { css, theme, keyframes } = createStitches({
   theme: defaultTheme,
 });
 
