@@ -23,10 +23,17 @@ import { theme } from 'venus';
       <div style="display: grid; gap: 30px; padding: 60px;">
         <h3>Resultado</h3>
         <p>Faça uma busca usando algum solver e o resultado estara aqui.</p>
-        <venus-button>
-          <venus-icon name="info" color="light" size="sm"></venus-icon>
-          Info
-        </venus-button>
+        <form (ngSubmit)="send()">
+          <venus-input
+            placeholder="Placeholder"
+            [(model)]="modelo"
+            name="modelo"
+          ></venus-input>
+          <venus-button type="submit">
+            <venus-icon name="info" color="light" size="sm"></venus-icon>
+            Info
+          </venus-button>
+        </form>
         <venus-card radius="lg">
           <venus-card-header title="Lorem ipsum">
             <venus-icon name="expand_more" color="dark" size="md"></venus-icon>
@@ -48,6 +55,11 @@ import { theme } from 'venus';
 })
 export class AppComponent implements OnInit {
   style = '';
+  modelo = '';
+
+  send() {
+    alert(this.modelo);
+  }
 
   ngOnInit() {
     this.style = div().className;
