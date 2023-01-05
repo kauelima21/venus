@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CssResetComponent } from './components/css-reset/css-reset.component';
-import { VenusButtonComponent } from '../public-api';
+import { VenusButtonComponent, VenusTooltipComponent } from '../public-api';
 import { VenusInputComponent } from './components/venus-input/venus-input.component';
 import { VenusIconsComponent } from './components/venus-icon/venus-icon.component';
 import { VenusBreadcrumbComponent } from './components/venus-breadcrumb/venus-breadcrumb.component';
@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     VenusCardComponent,
     VenusCardHeaderComponent,
     VenusCardContentComponent,
+    VenusTooltipComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule],
   exports: [
@@ -32,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     VenusCardComponent,
     VenusCardHeaderComponent,
     VenusCardContentComponent,
+    VenusTooltipComponent,
   ],
 })
 export class VenusModule {}
