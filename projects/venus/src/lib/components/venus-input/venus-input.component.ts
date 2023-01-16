@@ -20,13 +20,21 @@ import { VenusInputStyle } from './venus-input.styles';
       [required]="isRequired"
       [name]="name"
       [type]="type"
+      [step]="step"
       value=""
     />
   `,
   styles: [],
 })
 export class VenusInputComponent implements OnInit, OnChanges {
-  @Input() type: 'text' | 'number' | 'password' = 'text';
+  @Input() type:
+    | 'text'
+    | 'number'
+    | 'password'
+    | 'date'
+    | 'time'
+    | 'datetime-local' = 'text';
+  @Input() step = '1';
   @Input() name: string = '';
   @Input() model: string = '';
   @Output() modelChange: any = new EventEmitter();

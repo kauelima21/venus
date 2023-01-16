@@ -30,6 +30,14 @@ import { theme } from 'venus';
             name="modelo"
             [isRequired]="true"
           ></venus-input>
+          <venus-input
+            type="datetime-local"
+            step="1"
+            [(model)]="data"
+            name="data"
+          ></venus-input>
+          <venus-input type="date" step="1"></venus-input>
+          <venus-input type="time" step="1"></venus-input>
           <venus-button type="submit">
             <venus-icon name="info" color="light" size="sm"></venus-icon>
             Info
@@ -57,9 +65,11 @@ import { theme } from 'venus';
 export class AppComponent implements OnInit {
   style = '';
   modelo = '';
+  data = '';
 
   send() {
     alert(this.modelo);
+    alert(this.data);
   }
 
   ngOnInit() {
