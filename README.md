@@ -1,7 +1,7 @@
 # VenusUi
 
 generate component in venus lib
-```ng g c components/<component-name> --inline-style --inline-template --export --project=venus```
+```ng g c components/<component-name> --inline-style --inline-template --skip-tests --export --project=venus```
 
 Delete the test file!
 
